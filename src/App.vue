@@ -1,12 +1,21 @@
-<!-- Composition API er stilen vi bruker, forklaring: https://vuejs.org/guide/introduction.html#which-to-choose -->
-<script setup>
-  import Navbar from './components/Navbar.vue';
+<!-- Options API: https://vuejs.org/guide/introduction.html -->
+<script>
+import Navbar from './components/Navbar.vue';
 
+export default {
+  name: 'App',
+  components: {
+    Navbar
+  }
+}
 </script>
 
 <template>
   <Navbar />
-  <RouterView />
+  <div class="container-fluid">
+    <!-- f.eks Products -->
+    <RouterView /> 
+  </div>
 </template>
 
 <style lang="css">

@@ -1,5 +1,4 @@
-<script setup>
-    console.log('hello from about');
+<script>
 </script>
 
 <template>
@@ -7,4 +6,7 @@
 </template>
 
 <style lang="css" scoped>
+    h1 {
+        color: blue;
+    }
 </style>
