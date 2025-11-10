@@ -3,9 +3,10 @@
 
 <template>
     <h1>Hello from about!</h1>
+    <button class="btn btn-success">Button</button>
 </template>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
     h1 {
         color: blue;
     }
