@@ -12,13 +12,12 @@ export default {
 
 <template>
   <Navbar />
-  <div class="container-fluid">
-    <!-- f.eks Products -->
+  <div class="container">
     <RouterView /> 
   </div>
 </template>
 
-<style lang="css">
+<style lang="scss">
 
   body {
     margin: 0px;
