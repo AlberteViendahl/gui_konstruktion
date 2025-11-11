@@ -8,6 +8,7 @@ export default {
     <nav id="navbar">
         <RouterLink to="/">Go to home</RouterLink>
         <RouterLink to="/about">Go to about</RouterLink>
+        <RouterLink to="/products">Go to products</RouterLink>
     </nav> 
 </template>
 
