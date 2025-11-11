@@ -9,6 +9,7 @@ export default {
         <RouterLink to="/">Go to home</RouterLink>
         <RouterLink to="/about">Go to about</RouterLink>
         <RouterLink to="/products">Go to products</RouterLink>
+        <!-- <RouterLink to="/singleViewProduct">Go to single view product</RouterLink> -->
     </nav> 
 </template>
 
