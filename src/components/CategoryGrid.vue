@@ -47,7 +47,7 @@ export default {
 
 <template>
   <div>
-    <h2>Udforsk kategorier</h2>
+    <h2 class="mt-4 mb-3">Udforsk kategorier</h2>
     
     <div class="row g-2">
       <div
