@@ -1,22 +1,46 @@
 <script>
 import Grading from './Grading.vue';
 
+<script>
 export default {
   name: 'ProductCard',
   components: {
     Grading
   },
   props: {
+    id: String,
     title: String,
     image: String,
     price: [String, Number],
-    quantity: {
-      type: [String, Number],
-      default: 1 // hvis du ikke sender noget, vises "1" automatisk
+    quantity: { type: [String, Number], default: 1 }
+  },
+  data() {
+    return {
+      liked: false, // til at tracke om produktet er favoritter
+    }
+  },
+   computed: {
+    // heartClasses - computed property, 
+    // der returnerer et objekt med klasser og deres betingelser
+    heartClasses() {
+      return {
+        'bi-heart-fill': this.liked, // fyldt hjerte, hvis liked (true)
+        'teal': this.liked,          // teal farve, hvis liked
+        'bi-heart': !this.liked      // outline hjerte, hvis ikke liked, uden fyld (false)
+      }
     }
   },
   methods: {
-
+    goToProduct() {
+      this.$router.push({ 
+        name: 'SingleViewProduct', 
+        params: { id: this.id } })
+    },
+    // Skifter liked mellem true og false. Dette trigger computed property 
+    // heartClasses → hjertet skifter mellem fyldt og outline.
+     toggleLike() {
+      this.liked = !this.liked;
+    }
   }
 }
 </script>
@@ -43,28 +67,16 @@ export default {
   </div>
 </template>
 
+.favorite:hover {
+  transform: scale(1.2);
+}
 
-<style scoped>
-    .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-        border-radius: 0.75rem; /* slightly rounded */
-        background-color: #FBF7EF;
-        border: none;
-    }
-    .card-text {
-        font-size: 1.2em;
-        color: #333;
-        font-weight: bold;
-    }
-    .bi-heart {
-        /* font-size: 1.5em; */
-        color: #008080;
-        cursor: pointer;
-        float: right;
-    }
-    .card-img-top {
-        height: 100px;      /* fast højde */
-        object-fit: cover;  /* beskær billedet uden forvrængning */
-    }
+/* Fyldt hjerte når liked */
+.teal {
+  color: #008080; /* fyldt teal */
+}
+.bi-circle {
+  float: right;
+}
+
 </style>
