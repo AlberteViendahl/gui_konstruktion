@@ -1,6 +1,6 @@
 // Til forklaring: https://v3.router.vuejs.org/
 // https://router.vuejs.org/
-import { createRouter, createMemoryHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/pages/Home.vue';
 import About from '@/pages/About.vue';
 import Products from '@/pages/Products.vue';
@@ -12,7 +12,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createMemoryHistory(),
+    history: createWebHistory(),
     routes,
 });
 
