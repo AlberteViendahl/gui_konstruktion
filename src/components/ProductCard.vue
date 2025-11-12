@@ -1,7 +1,11 @@
 <script>
+import Grading from './Grading.vue';
 
 export default {
   name: 'ProductCard',
+  components: {
+    Grading
+  },
   props: {
     title: String,
     image: String,
@@ -22,21 +26,19 @@ export default {
    <!-- Her sættes billedet med justeret højde -->
     <img :src="image" class="card-img-top" :alt="title" />
     <div class="card-body">
-      <h5 class="card-title d-flex justify-content-between align-items-center">
-        {{ title }}
-      </h5>
+      <div class="d-flex justify-content-between">
+        <h5 class="card-title d-flex justify-content-between align-items-center">
+          {{ title }}
+        </h5>
+        <Grading grading="A" />
+      </div>
       <p class="text"> 
-        {{ quantity }} stk 
-    </p>
+          {{ quantity }} stk 
+      </p>
       <p class="card-text">
-        {{ price }} DKK 
-        <!-- &nbsp;
-        &nbsp;
-        &nbsp; -->
-        <!-- Hjerte ikon -->
-        <!-- toggleFavorite - er ikke implementeret endnu-->
-       <i class="bi bi-heart" v-on:click="toggleFavorite" ></i>
-    </p>
+          {{ price }} DKK 
+        <i class="bi bi-heart" v-on:click="toggleFavorite" ></i>
+      </p>
     </div>
   </div>
 </template>
