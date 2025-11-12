@@ -1,44 +1,60 @@
-<script>
-import ProductCard from '@/components/ProductCard.vue';
-
-export default {
-  name: 'Products',
-  components: { ProductCard },
-  methods: {
-   
-  },
-  mounted() {
-    console.log('hello from products')
-  }
-}
-</script>
-
 <template>
-  <div class="container py-4">
-    <h2 class="mb-4">Produkter</h2>
-    <div class="row g-3"> <!-- row med gap -->
-
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+  <div>
+    <h2>Produkter</h2>
+    <div class="row">
+      <div class="col-6 p-1" v-for="p in products" :key="p.id">
         <ProductCard
-          title="Røde Mursten"
-          image="/img/mursten.jpg"
-          price="200"
-          quantity="100"
+          :id="p.id"
+          :title="p.title"
+          :image="p.image"
+          :price="p.price"
+          :quantity="p.quantity"
+          :material="p.material"
         />
       </div>
-
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-        <ProductCard
-          title="Paller"
-          image="/img/paller.jpg"
-          price="500"
-          quantity="12"
-        />
-      </div>
-      <!-- Flere produkter kan tilføjes her -->
     </div>
   </div>
 </template>
 
-<style scoped>
-</style>
+
+<script>
+import ProductCard from '@/components/ProductCard.vue'
+
+export default {
+  name: 'Products',
+  components: { ProductCard },
+  data() {
+    return {
+      products: [
+
+        { id: '1', 
+        title: 'Røde mursten', 
+        image: '/img/mursten.jpg', 
+        price: 2000, 
+        quantity: 20, 
+        description: 'High-quality red bricks', 
+        location: 'Roskilde, Sjælland',
+        material: 'Sten' },
+
+        { id: '2', 
+        title: 'Paller', 
+        image: '/img/paller.jpg', 
+        price: 1500, 
+        quantity: 5, 
+        description: 'Different types of pallets', 
+        location: 'København, Syd',
+        material: 'Træ' },
+
+        { id: '3', 
+        title: 'Tagsten', 
+        image: '/img/mursten.jpg', 
+        price: 3000, 
+        quantity: 50, 
+        description: 'Durable roof tiles', 
+        location: 'Aarhus, Jylland',
+        material: 'Træ' }
+      ]
+    }
+  }
+}
+</script>

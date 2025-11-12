@@ -17,7 +17,7 @@ function goBack(){
     </button>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .custom-btn {
         padding: 15px 15px;
         background-color: #008080;
