@@ -2,7 +2,6 @@
 // https://router.vuejs.org/
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/pages/Home.vue';
-import About from '@/pages/About.vue';
 import Products from '@/pages/Products.vue';
 import profil from "@/pages/Profil.vue";
 import Search from "@/pages/Search.vue";
