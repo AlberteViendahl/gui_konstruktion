@@ -5,10 +5,18 @@ export default {
 </script>
 
 <template>
+<<<<<<< HEAD
   <nav id="navbar">
     <RouterLink to="/">Go to home</RouterLink>
     <RouterLink to="/about">Go to about</RouterLink>
   </nav>
+=======
+    <nav id="navbar">
+        <RouterLink to="/">Go to home</RouterLink>
+        <RouterLink to="/about">Go to about</RouterLink>
+        <RouterLink to="/products">Go to products</RouterLink>
+    </nav> 
+>>>>>>> ce05092fa0da03b22c5caf9f30281c1ae0368e11
 </template>
 
 <style scoped>
