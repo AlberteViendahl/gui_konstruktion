@@ -1,27 +1,25 @@
 <!-- Options API: https://vuejs.org/guide/introduction.html -->
 <script>
-import Navbar from './components/Navbar.vue';
+import BottomBar from "./components/BottomBar.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Navbar
-  }
-}
+    BottomBar,
+  },
+};
 </script>
 
 <template>
-  <Navbar />
   <div class="container">
-    <RouterView /> 
+    <RouterView />
   </div>
+  <BottomBar />
 </template>
 
 <style lang="scss">
-
-  body {
-    margin: 0px;
-    padding: 0px;
-  }
-
+body {
+  margin: 0px;
+  padding: 0px;
+}
 </style>
