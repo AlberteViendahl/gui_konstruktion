@@ -1,26 +1,36 @@
 <template>
   <div class="card">
-  <div class="card-body">
-  <div class="product-detail">
-    <img :src="image" class="card-img-top" :alt="title">
-    <p class="card-text"> {{ location }}</p>
-  <!-- Rundt ikon uden indhold -->
-      <i class="bi bi-circle"> </i>
-    <h2>{{ title }}</h2>
-    <p> {{ quantity }} stk</p>
-    <p><strong>{{ price }} DKK</strong></p>
-     <strong>Beskrivelse</strong>
-     <p class="card-text">{{ description }}</p>
-     <strong>Materiale</strong>
-     <p class="card-text">{{ material }}</p>
+    <div class="card-body">
+      <div class="product-detail">
+        <img :src="image" class="card-img-top" :alt="title">
+        <p class="card-text"> {{ location }}</p>
+      <!-- Rundt ikon uden indhold -->
+        <div class="d-flex justify-content-between">
+          <h2>{{ title }}</h2>
+          <Grading grading="B"/>
+        </div>
+        <p> {{ quantity }} stk</p>
+        <p><strong>{{ price }} DKK</strong></p>
+        <strong>Beskrivelse</strong>
+        <p class="card-text">{{ description }}</p>
+        <strong>Materiale</strong>
+        <p class="card-text">{{ material }}</p>
+      </div>
+    </div>
   </div>
-</div>
-  </div>
+  <BackButton />
 </template>
 
 <script>
+import BackButton from './BackButton.vue';
+import Grading from './Grading.vue';
+
 export default {
   name: 'Product',
+  components: {
+    Grading,
+    BackButton
+  },
   props: {
     title: String,
     image: String,
