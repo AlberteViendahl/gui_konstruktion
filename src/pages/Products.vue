@@ -47,11 +47,20 @@ export default {
 
         { id: '3', 
         title: 'Tagsten', 
-        image: '/img/mursten.jpg', 
+        image: '/img/tagsten.jpg', 
         price: 3000, 
         quantity: 50, 
         description: 'Durable roof tiles', 
         location: 'Aarhus, Jylland',
+        material: 'Stenart' },
+
+        { id: '4', 
+        title: 'Træbrædder', 
+        image: '/img/træ.jpg', 
+        price: 500, 
+        quantity: 40, 
+        description: 'Træbrædder i forskellige størrelser', 
+        location: 'Korsør, Sjælland',
         material: 'Træ' }
       ]
     }
