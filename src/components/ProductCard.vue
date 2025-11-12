@@ -18,17 +18,6 @@ export default {
       liked: false, // til at tracke om produktet er favoritter
     }
   },
-   computed: {
-    // heartClasses - computed property, 
-    // der returnerer et objekt med klasser og deres betingelser
-    heartClasses() {
-      return {
-        'bi-heart-fill': this.liked, // fyldt hjerte, hvis liked (true)
-        'teal': this.liked,          // teal farve, hvis liked
-        'bi-heart': !this.liked      // outline hjerte, hvis ikke liked, uden fyld (false)
-      }
-    }
-  },
   methods: {
     goToProduct() {
       this.$router.push({ 
@@ -45,10 +34,10 @@ export default {
 </script>
 
 <template>
-  <div class="card p-2">
+  <div class="card p-2" @click="goToProduct">
    <!-- Her sættes billedet med justeret højde -->
     <img :src="image" class="card-img-top" :alt="title" />
-    <div class="card-body" @click="goToProduct">
+    <div class="card-body" >
       <div class="d-flex justify-content-between">
         <h5 class="card-title d-flex justify-content-between align-items-center">
           {{ title }}
@@ -58,16 +47,42 @@ export default {
       <p class="text"> 
           {{ quantity }} stk 
       </p>
-      <p class="card-text">
-          {{ price }} DKK 
-        <i class="bi bi-heart" v-on:click="toggleLike" ></i>
-      </p>
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="card-text p-0 m-0">
+            {{ price }} DKK 
+        </p>
+        <button class="custom-btn" @click.stop="toggleLike">
+          <i v-if="!this.liked" class="bi bi-heart teal"></i>
+          <i v-if="this.liked" class="bi bi-heart-fill teal"></i>
+        </button>
+      </div>
+
     </div>
   </div>
 </template>
 
 
-<style>
+<style scoped>
+.product-card {
+  padding: 10px; /* luft inde i kortet */
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: none;
+  background-color: #FBF7EF;
+}
+.card-img-top {
+  height: 100px;
+  object-fit: cover;
+}
+/* Hjerte ikon styling */
+.favorite {
+  cursor: pointer;
+  float: right;
+  font-size: 1.5rem;
+  transition: transform 0.2s, color 0.2s;
+  color: #008080; /* standard teal */
+}
+
 .favorite:hover {
   transform: scale(1.2);
 }
@@ -76,8 +91,10 @@ export default {
 .teal {
   color: #008080; /* fyldt teal */
 }
-.bi-circle {
-  float: right;
+
+.custom-btn {
+  background-color: transparent;
+  border: none;
 }
 
 </style>
