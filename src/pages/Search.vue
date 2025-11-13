@@ -24,12 +24,14 @@
 
       <p v-if="!filteredProducts.length">Ingen materialer fundet...</p>
     </div>
+    <CategoryGrid />
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
 import SearchComponent from "@/components/SearchComponent.vue";
+import CategoryGrid from "@/components/CategoryGrid.vue";
 import Filter from "@/components/Filter.vue";
 
 // Hardcodede materialer
@@ -61,6 +63,7 @@ const filteredProducts = computed(() => {
   max-width: 800px;
   margin: auto;
   padding: 20px;
+  margin-bottom: 100px;
 }
 
 .material-list {

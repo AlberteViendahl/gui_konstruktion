@@ -38,7 +38,7 @@ export default {
 </script>
 
 <template>
-  <div class="card p-2" @click="goToProduct">
+  <div class="card p-2 h-100" @click="goToProduct">
     <!-- Her sættes billedet med justeret højde -->
     <img :src="image" class="card-img-top" :alt="title" />
     <div class="card-body">
