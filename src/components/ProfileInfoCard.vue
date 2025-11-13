@@ -16,21 +16,23 @@ export default {
       type: String
     },
   },
-  components: {
-    edit,
-  }
+  data() {
+    return {
+      editSvgPath: edit 
+    }
+  },
 }
 </script>
 
 <template>
-  <section class="bg-white rounded-2 p-4 position-relative">
+  <section class="bg-white rounded-2 px-4 py-2 position-relative">
 
     <header class="text-center mt-5 mb-4">
       <img :src="user.photoUrl" :alt="user.name" class="profile-picture rounded-circle">
     </header>
 
     <button type="button" class="edit-info-icon position-absolute border-0 bg-transparent" aria-label="edit-profile">
-            ✏️ 
+          <img :src="editSvgPath" alt="rediger profil" class="edit-icon">
     </button>
 
     <dl class="profile-details p-4 rounded-4">
@@ -51,6 +53,12 @@ export default {
 
 
 <style lang="scss" scoped>
+
+.edit-icon {
+  height: 18px;
+  width: auto;
+}
+
 .profile-details {
   border: 1px solid #cccccc;
 }
@@ -64,7 +72,7 @@ export default {
 
 .edit-info-icon {
   top: 50px;
-  right: 50px;
+  right: 30px;
   cursor: pointer;
 }
 
