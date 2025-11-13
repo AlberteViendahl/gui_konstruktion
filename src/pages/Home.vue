@@ -16,45 +16,49 @@
   </div>
 </template>
 
-
 <script>
-import ProductCard from '@/components/ProductCard.vue'
+import ProductCard from "@/components/ProductCard.vue";
 
 export default {
-  name: 'Products',
+  name: "Products",
   components: { ProductCard },
   data() {
     return {
       products: [
+        {
+          id: "1",
+          title: "Røde mursten",
+          image: "/img/mursten.jpg",
+          price: 2000,
+          quantity: 20,
+          description: "High-quality red bricks",
+          location: "Roskilde, Sjælland",
+          material: "Sten",
+        },
 
-        { id: '1', 
-        title: 'Røde mursten', 
-        image: '/img/mursten.jpg', 
-        price: 2000, 
-        quantity: 20, 
-        description: 'High-quality red bricks', 
-        location: 'Roskilde, Sjælland',
-        material: 'Sten' },
+        {
+          id: "2",
+          title: "Paller",
+          image: "/img/paller.jpg",
+          price: 1500,
+          quantity: 5,
+          description: "Different types of pallets",
+          location: "København, Syd",
+          material: "Træ",
+        },
 
-        { id: '2', 
-        title: 'Paller', 
-        image: '/img/paller.jpg', 
-        price: 1500, 
-        quantity: 5, 
-        description: 'Different types of pallets', 
-        location: 'København, Syd',
-        material: 'Træ' },
-
-        { id: '3', 
-        title: 'Tagsten', 
-        image: '/img/mursten.jpg', 
-        price: 3000, 
-        quantity: 50, 
-        description: 'Durable roof tiles', 
-        location: 'Aarhus, Jylland',
-        material: 'Træ' }
-      ]
-    }
-  }
-}
+        {
+          id: "3",
+          title: "Tagsten",
+          image: "/img/mursten.jpg",
+          price: 3000,
+          quantity: 50,
+          description: "Durable roof tiles",
+          location: "Aarhus, Jylland",
+          material: "Træ",
+        },
+      ],
+    };
+  },
+};
 </script>

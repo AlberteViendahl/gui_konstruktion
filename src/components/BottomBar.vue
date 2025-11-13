@@ -53,6 +53,7 @@ const route = useRoute();
   align-items: center;
   background: #008080;
   padding: 1rem;
+  margin-top: 1rem;
   position: fixed;
   width: 100%;
   bottom: 0;
