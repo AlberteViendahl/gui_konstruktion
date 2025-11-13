@@ -1,11 +1,10 @@
 <script>
-
-import Grading from './Grading.vue';
+import Grading from "./Grading.vue";
 
 export default {
-  name: 'ProductCard',
+  name: "ProductCard",
   components: {
-    Grading
+    Grading,
   },
   props: {
     id: String,
@@ -17,82 +16,53 @@ export default {
       default: 1, // hvis du ikke sender noget, vises "1" automatisk
     },
   },
-  methods: {},
+  data() {
+    return {
+      liked: false, // til at tracke om produktet er favoritter
+    };
+  },
+  methods: {
+    goToProduct() {
+      this.$router.push({
+        name: "SingleViewProduct",
+        params: { id: this.id },
+      });
+    },
+    // Skifter liked mellem true og false. Dette trigger computed property
+    // heartClasses → hjertet skifter mellem fyldt og outline.
+    toggleLike() {
+      this.liked = !this.liked;
+    },
+  },
 };
 </script>
 
 <template>
-  <div class="card p-2">
+  <div class="card p-2" @click="goToProduct">
     <!-- Her sættes billedet med justeret højde -->
     <img :src="image" class="card-img-top" :alt="title" />
     <div class="card-body">
-      <h5 class="card-title d-flex justify-content-between align-items-center">
-        {{ title }}
-      </h5>
-      <p class="text">{{ quantity }} stk</p>
-      <p class="card-text">
-        {{ price }} DKK
-        <!-- &nbsp;
-        &nbsp;
-        &nbsp; -->
-        <!-- Hjerte ikon -->
-        <!-- toggleFavorite - er ikke implementeret endnu-->
-        <i class="bi bi-heart" v-on:click="toggleFavorite"></i>
-      </p>
-
-    quantity: { type: [String, Number], default: 1 }
-  },
-  data() {
-    return {
-      liked: false, // til at tracke om produktet er favoritter
-    }
-  },
-  methods: {
-    goToProduct() {
-      this.$router.push({ 
-        name: 'SingleViewProduct', 
-        params: { id: this.id } })
-    },
-    // Skifter liked mellem true og false. Dette trigger computed property 
-    // heartClasses → hjertet skifter mellem fyldt og outline.
-     toggleLike() {
-      this.liked = !this.liked;
-    }
-  }
-}
-
-
-<template>
-  <div class="card p-2" @click="goToProduct">
-   <!-- Her sættes billedet med justeret højde -->
-    <img :src="image" class="card-img-top" :alt="title" />
-    <div class="card-body" >
       <div class="d-flex justify-content-between">
-        <h5 class="card-title d-flex justify-content-between align-items-center">
+        <h5
+          class="card-title d-flex justify-content-between align-items-center"
+        >
           {{ title }}
         </h5>
         <Grading grading="A" />
       </div>
-      <p class="text"> 
-          {{ quantity }} stk 
-      </p>
+      <p class="text">{{ quantity }} stk</p>
       <div class="d-flex justify-content-between align-items-center">
-        <p class="card-text p-0 m-0">
-            {{ price }} DKK 
-        </p>
+        <p class="card-text p-0 m-0">{{ price }} DKK</p>
         <button class="custom-btn" @click.stop="toggleLike">
-          <i v-if="!this.liked" class="bi bi-heart teal"></i>
-          <i v-if="this.liked" class="bi bi-heart-fill teal"></i>
+          <i v-if="!liked" class="bi bi-heart teal"></i>
+          <i v-if="liked" class="bi bi-heart-fill teal"></i>
         </button>
       </div>
-
-
     </div>
   </div>
 </template>
 
 <style scoped>
-
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -115,14 +85,13 @@ export default {
   height: 100px; /* fast højde */
   object-fit: cover; /* beskær billedet uden forvrængning */
 }
-</style>
 
 .product-card {
   padding: 10px; /* luft inde i kortet */
   border-radius: 0.75rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   border: none;
-  background-color: #FBF7EF;
+  background-color: #fbf7ef;
 }
 .card-img-top {
   height: 100px;
@@ -150,6 +119,4 @@ export default {
   background-color: transparent;
   border: none;
 }
-
 </style>
-
