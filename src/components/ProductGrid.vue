@@ -12,39 +12,43 @@ export default {
     },
   data() {
     return {
-      products: [
-        {
-          id: "1",
-          title: "Røde mursten",
-          image: "/img/mursten.jpg",
-          price: 2000,
-          quantity: 20,
-          description: "High-quality red bricks",
-          location: "Roskilde, Sjælland",
-          material: "Sten",
-        },
+       products: [
 
-        {
-          id: "2",
-          title: "Paller",
-          image: "/img/paller.jpg",
-          price: 1500,
-          quantity: 5,
-          description: "Different types of pallets",
-          location: "København, Syd",
-          material: "Træ",
-        },
+        { id: '1', 
+        title: 'Røde mursten', 
+        image: '/img/mursten.jpg', 
+        price: 2000, 
+        quantity: 20, 
+        description: 'High-quality red bricks', 
+        location: 'Roskilde, Sjælland',
+        material: 'Sten' },
 
-        {
-          id: "3",
-          title: "Tagsten",
-          image: "/img/mursten.jpg",
-          price: 3000,
-          quantity: 50,
-          description: "Durable roof tiles",
-          location: "Aarhus, Jylland",
-          material: "Træ",
-        },
+        { id: '2', 
+        title: 'Paller', 
+        image: '/img/paller.jpg', 
+        price: 1500, 
+        quantity: 5, 
+        description: 'Different types of pallets', 
+        location: 'København, Syd',
+        material: 'Træ' },
+
+        { id: '3', 
+        title: 'Tagsten', 
+        image: '/img/tagsten.jpg', 
+        price: 3000, 
+        quantity: 50, 
+        description: 'Durable roof tiles', 
+        location: 'Aarhus, Jylland',
+        material: 'Stenart' },
+
+        { id: '4', 
+        title: 'Træbrædder', 
+        image: '/img/træ.jpg', 
+        price: 500, 
+        quantity: 40, 
+        description: 'Træbrædder i forskellige størrelser', 
+        location: 'Korsør, Sjælland',
+        material: 'Træ' }
       ],
     };
   },
@@ -74,5 +78,10 @@ export default {
 </template>
 
 <style scoped>
-
+.card {
+  background-color: #FBF7EF;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: none;
+}
 </style>
