@@ -17,18 +17,22 @@
         <p class="card-text">{{ material }}</p>
       </div>
     </div>
+    <ContactModal />
   </div>
+
 </template>
 
 <script>
 import BackButton from './BackButton.vue';
+import ContactModal from './ContactModal.vue';
 import Grading from './Grading.vue';
 
 export default {
   name: 'Product',
   components: {
     Grading,
-    BackButton
+    BackButton,
+    ContactModal
   },
   props: {
     title: String,

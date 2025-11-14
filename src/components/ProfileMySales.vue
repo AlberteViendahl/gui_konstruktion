@@ -59,21 +59,30 @@ export default {
         />
 
       </li>
-      <li class="col-6 p-1 d-flex justify-content-center align-items-center">
-        <button type="button" class="btn rounded-circle" aria-label="Tilføj nyt produkt">
-          <img :src="plusSvgPath" alt="Plus ikon" class="plus-icon rounded-circle bg-primary p-3"> 
-        </button>
-      </li>
-    
     </ul>
   </section>
+      <button type="button" class="custom-btn" aria-label="Tilføj nyt produkt">
+      <img :src="plusSvgPath" alt="Plus ikon" class="plus-icon rounded-circle bg-primary p-3"> 
+    </button>
 </template>
 
 
 <style lang="scss" scoped>
-.plus-icon {
-  height: 50px;
-  width: auto;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
+    .plus-icon {
+      // height: 50px;
+      // width: auto;
+      // box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .custom-btn {
+        padding: 15px 15px;
+        background-color: #008080;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: sticky;
+        bottom: 80px;
+        left: 100%;
+    }
 </style>

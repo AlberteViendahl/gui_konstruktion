@@ -2,8 +2,6 @@
 // https://router.vuejs.org/
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/pages/Home.vue';
-import Products from '@/pages/Products.vue';
-
 import profil from "@/pages/Profil.vue";
 import Search from "@/pages/Search.vue";
 import Liked from "@/pages/Liked.vue";
@@ -13,7 +11,6 @@ import FallbackPage from '@/pages/FallbackPage.vue';
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/profil", name: "Profile", component: profil },
-  { path: "/products", name: "Products" ,Products },
   { path: "/search", name: "Search", component: Search },
   { path: "/liked", name: "Liked", component: Liked },
   { path: "/fallback", name: "Fallback", component: FallbackPage },

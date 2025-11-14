@@ -14,7 +14,7 @@
 </script>
 
 <template>
-    <div class="custom-card bg-secondary rounded-4 w-100 p-4 mt-3" role="dialog">
+    <div class="custom-card bg-secondary rounded-4 w-100 p-4 mt-3 mb-5" role="dialog">
         <section v-if="!verified">
             <h2>Kontakt</h2>
             <p>Hvis du vil kontakte sælger så skal du verificeres med MitId.</p>
