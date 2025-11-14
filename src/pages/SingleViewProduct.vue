@@ -10,11 +10,16 @@
       :description="product.description"
       :location="product.location"
       :material="product.material"
-
     />
     <p v-else>Produkt ikke fundet</p>
   </section>
 </template>
+
+<style scoped>
+  section {
+    margin-top: 100px;
+  }
+</style>
 
 <script>
 import Product from '@/components/Product.vue'
