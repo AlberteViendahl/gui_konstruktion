@@ -1,64 +1,28 @@
 <template>
-  <div>
-    <h2>Produkter</h2>
-    <div class="row">
-      <div class="col-6 p-1" v-for="p in products" :key="p.id">
-        <ProductCard
-          :id="p.id"
-          :title="p.title"
-          :image="p.image"
-          :price="p.price"
-          :quantity="p.quantity"
-          :material="p.material"
-        />
-      </div>
-    </div>
-  </div>
+  <section class="container p-4">
+    <header class="page-header d-flex align-items-center justify-content-between p-4">
+      <h1 class="homepage-logo text-center flex-grow-1 mx-3 my-0">
+        <span class="text-primary">Re</span>Build
+      </h1>
+    </header>
+    <ProductGrid />
+  </section>
 </template>
 
 <script>
-import ProductCard from "@/components/ProductCard.vue";
-
+import ProductGrid from "@/components/ProductGrid.vue";
 export default {
   name: "Products",
-  components: { ProductCard },
-  data() {
-    return {
-      products: [
-        {
-          id: "1",
-          title: "Røde mursten",
-          image: "/img/mursten.jpg",
-          price: 2000,
-          quantity: 20,
-          description: "High-quality red bricks",
-          location: "Roskilde, Sjælland",
-          material: "Sten",
-        },
-
-        {
-          id: "2",
-          title: "Paller",
-          image: "/img/paller.jpg",
-          price: 1500,
-          quantity: 5,
-          description: "Different types of pallets",
-          location: "København, Syd",
-          material: "Træ",
-        },
-
-        {
-          id: "3",
-          title: "Tagsten",
-          image: "/img/mursten.jpg",
-          price: 3000,
-          quantity: 50,
-          description: "Durable roof tiles",
-          location: "Aarhus, Jylland",
-          material: "Træ",
-        },
-      ],
-    };
+  components: { 
+    ProductGrid,
   },
 };
 </script>
+<style lang="scss" scoped>
+  .homepage-logo {
+    font-size: 56px;
+  }
+  .container {
+    margin-bottom: 100px;
+  }
+</style>

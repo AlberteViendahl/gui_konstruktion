@@ -1,13 +1,15 @@
 <script>
+import PageHeader from '@/components/PageHeader.vue';
 export default {
   name: "Liked",
+  components: {
+    PageHeader,
+  }
 };
 </script>
 
 <template>
-  <div>
-    <h1>Synes godt om</h1>
-  </div>
+  <PageHeader title="Synes godt om" />
 </template>
 
 <style lang="scss" scoped></style>

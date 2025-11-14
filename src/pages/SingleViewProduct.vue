@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <section>
+    <PageHeader title="Produkt" />
     <Product
       v-if="product"
       :title="product.title"
@@ -12,15 +13,20 @@
 
     />
     <p v-else>Produkt ikke fundet</p>
-  </div>
+  </section>
 </template>
 
 <script>
 import Product from '@/components/Product.vue'
+import PageHeader from '@/components/PageHeader.vue';
 
 export default {
   name: 'SingleViewProduct',
-  components: { Product },
+  components: { 
+    Product,
+    PageHeader,
+  },
+
   data() {
     return {
       products: [
