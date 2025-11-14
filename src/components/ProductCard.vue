@@ -15,10 +15,14 @@ export default {
       type: [String, Number],
       default: 1, // hvis du ikke sender noget, vises "1" automatisk
     },
+    initialLiked: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
-      liked: false, // til at tracke om produktet er favoritter
+      liked: this.initialLiked,
     };
   },
   methods: {
@@ -43,7 +47,7 @@ export default {
    <!-- Her sættes billedet med justeret højde -->
     <img :src="image" class="card-img-top" :alt="title" />
     <div class="card-body" >
-      <div class="d-flex justify-content-between">
+      <div class="d-flex align-items-start justify-content-between">
         <h5 class="card-title d-flex justify-content-between align-items-center">
           {{ title }}
         </h5>
@@ -91,5 +95,8 @@ export default {
   border: none;
 }
 
+.card-title {
+  overflow-wrap: break-word;
+}
 
 </style>

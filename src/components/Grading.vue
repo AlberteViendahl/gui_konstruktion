@@ -15,7 +15,7 @@
 <template>
 
 <!-- Button trigger modal -->
-<button type="button" class="custom-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" @click.stop class="custom-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
     <div class="grade-container">
 
         <div class="circle">
@@ -31,9 +31,9 @@
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered ">
-        <div class="modal-content">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" @click.stop>
+    <div class="modal-dialog modal-dialog-centered" @click.stop>
+        <div class="modal-content" @click.stop>
             <div class="card">
                 <div class="card-header">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle warning-icon" viewBox="0 0 16 16">

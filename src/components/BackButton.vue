@@ -26,9 +26,9 @@ function goBack(){
         display: flex;
         align-items: center;
         justify-content: center;
-        position: absolute;
+        position: sticky;
         bottom: 80px;
-        right: 10px;
+        left: 100%;
     }
 
     #arrowIcon {
