@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <section>
+    <PageHeader title="Produkt" />
     <Product
       v-if="product"
       :title="product.title"
@@ -9,18 +10,31 @@
       :description="product.description"
       :location="product.location"
       :material="product.material"
-
     />
     <p v-else>Produkt ikke fundet</p>
-  </div>
+    <BackButton />
+  </section>
 </template>
+
+<style scoped>
+  section {
+    margin-top: 100px;
+  }
+</style>
 
 <script>
 import Product from '@/components/Product.vue'
+import PageHeader from '@/components/PageHeader.vue';
+import BackButton from '@/components/BackButton.vue';
 
 export default {
   name: 'SingleViewProduct',
-  components: { Product },
+  components: { 
+    Product,
+    PageHeader,
+    BackButton
+  },
+
   data() {
     return {
       products: [

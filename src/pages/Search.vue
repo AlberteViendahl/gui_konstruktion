@@ -1,6 +1,6 @@
 <template>
-  <div class="shop">
-    <h1>Kategori</h1>
+  <section class="shop">
+    <PageHeader title="Udforsk" />
     <p>
       Her finder du vores komplette, sorterede udvalg af genbrugte
       byggematerialer. <br /><br />
@@ -11,26 +11,31 @@
     </p>
 
     <!-- Search og Filter -->
-    <div class="fands">
+    <form class="fands d-flex gap-2 mt-4">
       <SearchComponent @update-search="search = $event" />
       <Filter @update-category="selectedCategory = $event" />
-    </div>
+    </form>
 
     <!-- Liste af filtrerede materialer -->
-    <div class="material-list">
-      <div v-for="p in filteredProducts" :key="p.id" class="material-item">
-        {{ p.name }} ({{ p.category }}) - {{ p.price }} kr
-      </div>
+    <section class="material-list">
+      <ul v-if="filteredProducts.length" class="list-unstyled">
+        <li v-for="p in filteredProducts" :key="p.id" class="material-item">
+          {{ p.name }} ({{ p.category }}) - {{ p.price }} kr
+        </li>
+      </ul>
 
       <p v-if="!filteredProducts.length">Ingen materialer fundet...</p>
-    </div>
-  </div>
+    </section>
+    <CategoryGrid />
+  </section>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
 import SearchComponent from "@/components/SearchComponent.vue";
+import CategoryGrid from "@/components/CategoryGrid.vue";
 import Filter from "@/components/Filter.vue";
+import PageHeader from '@/components/PageHeader.vue';
 
 // Hardcodede materialer
 const produkter = [
@@ -59,8 +64,9 @@ const filteredProducts = computed(() => {
 <style scoped>
 .shop {
   max-width: 800px;
-  margin: auto;
+  margin-top: 80px;
   padding: 20px;
+  margin-bottom: 100px;
 }
 
 .material-list {
@@ -73,11 +79,5 @@ const filteredProducts = computed(() => {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-}
-
-.fands {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
 }
 </style>

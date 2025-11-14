@@ -1,9 +1,11 @@
 <script>
 import ProfileView from '@/components/ProfileView.vue';
+import PageHeader from '@/components/PageHeader.vue';
 export default {
   name: 'profile',
   components: {
     ProfileView,
+    PageHeader,
   },
   methods: {
    
@@ -15,8 +17,10 @@ export default {
 </script>
 
 <template>
-  <h1>Min Profil</h1>
-  <ProfileView />
+  <section>
+    <PageHeader title="Min profil" />
+    <ProfileView />
+  </section>
 </template>
 
 <style lang="scss" scoped>

@@ -46,9 +46,9 @@ export default {
 </script>
 
 <template>
-  <section class="bg-white rounded-2 p-4 position-relative">
-    <div class="row flex-wrap align-items-stretch">
-      <div class="col-6 p-1" v-for="p in products" :key="p.id">
+  <section class="bg-white rounded-2 p-3 position-relative">
+    <ul class="row list-unstyled flex-wrap align-items-stretch">
+      <li class="col-6 p-1" v-for="p in products" :key="p.id">
         <ProductCard
           :id="p.id"
           :title="p.title"
@@ -58,19 +58,14 @@ export default {
           :material="p.material"
         />
 
-      </div>
-      <div class="col-6 p-1 d-flex justify-content-center align-items-center">
+      </li>
+      <li class="col-6 p-1 d-flex justify-content-center align-items-center">
         <button type="button" class="btn rounded-circle" aria-label="Tilføj nyt produkt">
           <img :src="plusSvgPath" alt="Plus ikon" class="plus-icon rounded-circle bg-primary p-3"> 
         </button>
-      </div>
+      </li>
     
-    </div>
-
-    
-
-    
-
+    </ul>
   </section>
 </template>
 

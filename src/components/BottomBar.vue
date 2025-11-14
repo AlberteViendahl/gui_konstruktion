@@ -1,8 +1,8 @@
 <script setup>
 import { useRoute } from "vue-router";
 
-import logo from "@/assets/icons/logo.svg";
-import logoFilled from "@/assets/icons/logo-fill.svg";
+import logo from "@/assets/icons/logo-notfilled.svg";
+import logoFilled from "@/assets/icons/logo-filled.svg";
 import search from "@/assets/icons/search.svg";
 import searchFilled from "@/assets/icons/search-fill.svg";
 import like from "@/assets/icons/like.svg";

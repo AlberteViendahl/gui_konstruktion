@@ -38,61 +38,42 @@ export default {
 </script>
 
 <template>
-  <div class="card p-2" @click="goToProduct">
-    <!-- Her sættes billedet med justeret højde -->
+<!-- Bootstrap card -->
+  <div class="card p-2 h-100" @click="goToProduct">
+   <!-- Her sættes billedet med justeret højde -->
     <img :src="image" class="card-img-top" :alt="title" />
-    <div class="card-body">
+    <div class="card-body" >
       <div class="d-flex justify-content-between">
-        <h5
-          class="card-title d-flex justify-content-between align-items-center"
-        >
+        <h5 class="card-title d-flex justify-content-between align-items-center">
           {{ title }}
         </h5>
         <Grading grading="A" />
       </div>
-      <p class="text">{{ quantity }} stk</p>
+      <p class="text"> 
+          {{ quantity }} stk 
+      </p>
       <div class="d-flex justify-content-between align-items-center">
-        <p class="card-text p-0 m-0">{{ price }} DKK</p>
+        <p class="card-text p-0 m-0">
+            {{ price }} DKK 
+        </p>
         <button class="custom-btn" @click.stop="toggleLike">
-          <i v-if="!liked" class="bi bi-heart teal"></i>
-          <i v-if="liked" class="bi bi-heart-fill teal"></i>
+          <i v-if="!this.liked" class="bi bi-heart teal"></i>
+          <i v-if="this.liked" class="bi bi-heart-fill teal"></i>
         </button>
       </div>
+
     </div>
   </div>
 </template>
 
 <style scoped>
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  border-radius: 0.75rem; /* slightly rounded */
-  background-color: #fbf7ef;
-  border: none;
-}
-.card-text {
-  font-size: 1.2em;
-  color: #333;
-  font-weight: bold;
-}
-.bi-heart {
-  /* font-size: 1.5em; */
-  color: #008080;
-  cursor: pointer;
-  float: right;
-}
-.card-img-top {
-  height: 100px; /* fast højde */
-  object-fit: cover; /* beskær billedet uden forvrængning */
-}
-
 .product-card {
   padding: 10px; /* luft inde i kortet */
   border-radius: 0.75rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   border: none;
+  background-color: #FBF7EF;
 
-  background-color: #fbf7ef;
 }
 .card-img-top {
   height: 100px;
@@ -109,7 +90,6 @@ export default {
   background-color: transparent;
   border: none;
 }
-.card-body {
-  height: 150px;
-}
+
+
 </style>

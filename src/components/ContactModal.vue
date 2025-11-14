@@ -14,39 +14,30 @@
 </script>
 
 <template>
-    <div class="custom-card p-4 mt-3">
-        <div v-if="!verified">
+    <div class="custom-card bg-secondary rounded-4 w-100 p-4 mt-3" role="dialog">
+        <section v-if="!verified">
             <h2>Kontakt</h2>
             <p>Hvis du vil kontakte sælger så skal du verificeres med MitId.</p>
-            <button @click="verifyUser" class="custom-btn"><img class="mitid-logo" src="/public/img/mitid-white.svg"></button>
-        </div>
+            <button @click="verifyUser" class="custom-btn rounded-pill w-100 p-2"><img class="mitid-logo" src="/public/img/mitid-white.svg"></button>
+        </section>
 
-        <div v-if="verified">
+        <section v-if="verified">
             <h2>Kontakt</h2>
             <p>{{ name }}</p>
             <p>+{{ countryCode }} {{ phoneNumber }}</p>
-        </div>
+        </section>
     </div>
 </template>
 
 <style lang="scss" scoped>
     .custom-card {
-        background-color: #FBF7EF;
-        width: 100%;
         max-width: 500px;
-        border-radius: 20px;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        // display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 
     .custom-btn {
-        width: 100%;
-        border-radius: 20px;
         border: 1px solid #0060E6;
         background-color: #0060E6;
-        padding: 10px;
     }
 
     .custom-btn:hover {

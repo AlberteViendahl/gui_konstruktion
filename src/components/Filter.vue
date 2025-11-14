@@ -1,6 +1,8 @@
 <template>
-  <div class="filter">
+  <form class="filter">
+    <label for="category-select" class="visually-hidden">Vælg kategori:</label>
     <select
+      id="category-select"
       v-model="localCategory"
       @change="$emit('update-category', localCategory)"
     >
@@ -9,7 +11,7 @@
       <option value="mursten">Mursten</option>
       <option value="cement">Cement</option>
     </select>
-  </div>
+  </form>
 </template>
 
 <script setup>
