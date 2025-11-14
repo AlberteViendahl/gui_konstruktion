@@ -1,7 +1,6 @@
 <!-- Options API: https://vuejs.org/guide/introduction.html -->
 <script>
 import BottomBar from "./components/BottomBar.vue";
-import BackButton from "./components/BackButton.vue";
 
 export default {
   name: "App",
