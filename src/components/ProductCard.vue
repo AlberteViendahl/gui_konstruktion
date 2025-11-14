@@ -91,32 +91,25 @@ export default {
   border-radius: 0.75rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   border: none;
+
   background-color: #fbf7ef;
 }
 .card-img-top {
   height: 100px;
   object-fit: cover;
 }
-/* Hjerte ikon styling */
-.favorite {
-  cursor: pointer;
-  float: right;
-  font-size: 1.5rem;
-  transition: transform 0.2s, color 0.2s;
-  color: #008080; /* standard teal */
-}
-
-.favorite:hover {
-  transform: scale(1.2);
-}
 
 /* Fyldt hjerte når liked */
 .teal {
   color: #008080; /* fyldt teal */
+  cursor: pointer;
 }
 
 .custom-btn {
   background-color: transparent;
   border: none;
+}
+.card-body {
+  height: 150px;
 }
 </style>
