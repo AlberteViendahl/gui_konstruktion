@@ -43,7 +43,7 @@ export default {
    <!-- Her sættes billedet med justeret højde -->
     <img :src="image" class="card-img-top" :alt="title" />
     <div class="card-body" >
-      <div class="d-flex justify-content-between">
+      <div class="d-flex align-items-start justify-content-between">
         <h5 class="card-title d-flex justify-content-between align-items-center">
           {{ title }}
         </h5>
@@ -91,5 +91,8 @@ export default {
   border: none;
 }
 
+.card-title {
+  overflow-wrap: break-word;
+}
 
 </style>
