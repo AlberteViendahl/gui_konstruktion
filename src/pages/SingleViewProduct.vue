@@ -12,6 +12,7 @@
       :material="product.material"
     />
     <p v-else>Produkt ikke fundet</p>
+    <BackButton />
   </section>
 </template>
 
@@ -24,12 +25,14 @@
 <script>
 import Product from '@/components/Product.vue'
 import PageHeader from '@/components/PageHeader.vue';
+import BackButton from '@/components/BackButton.vue';
 
 export default {
   name: 'SingleViewProduct',
   components: { 
     Product,
     PageHeader,
+    BackButton
   },
 
   data() {

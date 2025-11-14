@@ -13,10 +13,7 @@ const props = defineProps({
 
 <template>
   <header class="page-header z-1 w-100 d-flex bg-white position-fixed align-items-center justify-content-between p-4">
-    
-    <nav class="header-left position-absolute">
-      <BackButton />
-    </nav>
+  
 
     <h1 class="page-title text-center flex-grow-1 mx-3 my-0">
       {{ props.title }} 

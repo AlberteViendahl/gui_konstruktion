@@ -14,7 +14,6 @@ export default {
 <template>
   <div class="container">
     <RouterView />
-    <BackButton />
   </div>
   <BottomBar />
 </template>
