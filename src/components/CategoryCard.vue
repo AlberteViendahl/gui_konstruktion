@@ -1,6 +1,9 @@
 <script>
+import { useRouter } from 'vue-router';
+
 export default {
   name: 'CategoryCard',
+
   props: {
     title: {
       type: String
@@ -9,30 +12,46 @@ export default {
       type: String
     },
     categoryLink: {
-      type: [String, Object], 
-      default: '#' 
+      type: [String, Object],
+      default: '#'
     }
   },
+
+  mounted() {
+  },
+
   methods: {
-  
+    goToCategory() {
+      // Extract category name from title for filtering
+      const categoryName = this.title.toLowerCase();
+      this.$router.push({
+        name: 'Home',
+        query: { category: categoryName }
+      });
+    }
   }
 }
+
 </script>
 
 <template>
-  <router-link :to="categoryLink" class="category-card text-white text-decoration-none">
+
+  <div @click="goToCategory()" class="category-card text-white text-decoration-none rounded-2">
     <figure class="card-image m-0 d-flex align-items-end overflow-hidden rounded-2" :style="{ backgroundImage: 'url(' + image + ')' }">
       <figcaption class="card-title-overlay d-flex align-items-end mb-3 ms-3">
         <h2 class="m-0 pe-3">{{ title }}</h2>
       </figcaption>
     </figure>
-  </router-link>
+  </div>
 </template>
 
 
 <style scoped>
 .category-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  background-color: transparent;
+  border: none;
 }
 
 .category-card:hover {

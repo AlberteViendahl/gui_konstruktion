@@ -11,12 +11,12 @@ import SingleViewProduct from '@/pages/SingleViewProduct.vue';
 import FallbackPage from '@/pages/FallbackPage.vue';
 
 const routes = [
-  { path: "/", component: Home },
-  { path: "/profil", component: profil },
-  { path: "/products", component: Products },
-  { path: "/search", component: Search },
-  { path: "/liked", component: Liked },
-  { path: "/fallback", component: FallbackPage },
+  { path: "/", name: "Home", component: Home },
+  { path: "/profil", name: "Profile", component: profil },
+  { path: "/products", name: "Products" ,Products },
+  { path: "/search", name: "Search", component: Search },
+  { path: "/liked", name: "Liked", component: Liked },
+  { path: "/fallback", name: "Fallback", component: FallbackPage },
   { path: '/products/:id', name: 'SingleViewProduct', component: SingleViewProduct } // ← :id her
 
 ];

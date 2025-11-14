@@ -4,19 +4,45 @@
     <select
       id="category-select"
       v-model="localCategory"
-      @change="$emit('update-category', localCategory)"
     >
       <option value="">Alle</option>
-      <option value="træ">Træ</option>
-      <option value="mursten">Mursten</option>
-      <option value="cement">Cement</option>
+      <option value="træ & tømmer">Træ & tømmer</option>
+      <option value="murværk & tegl">Murværk & tegl</option>
+      <option value="tag & isolering">Tag & isolering</option>
     </select>
   </form>
 </template>
 
-<script setup>
-import { ref } from "vue";
-const localCategory = ref("");
+<script>
+export default {
+  name: 'Filter',
+  props: {
+    modelValue: {
+      type: String,
+      default: ''
+    }
+  },
+  emits: ['update-category', 'update:modelValue'],
+  data() {
+    return {
+      localCategory: this.modelValue
+    };
+  },
+  watch: {
+    // Watch for prop changes and update local value
+    modelValue: {
+      handler(newValue) {
+        this.localCategory = newValue;
+      },
+      immediate: true
+    },
+    // Watch for local changes and emit events
+    localCategory(newValue) {
+      this.$emit('update-category', newValue);
+      this.$emit('update:modelValue', newValue);
+    }
+  }
+};
 </script>
 
 <style scoped>
