@@ -21,12 +21,12 @@ export default {
 
 <template>
   <router-link :to="categoryLink" class="category-card text-white text-decoration-none">
-    <div class="card-image d-flex align-items-end overflow-hidden rounded-2" :style="{ backgroundImage: 'url(' + image + ')' }">
-      <div class="card-title-overlay d-flex align-items-end mb-3 ms-3">
-        <h2 class="m-0" v-html="title"></h2>
-      </div>
-    </div>
-    </router-link>
+    <figure class="card-image m-0 d-flex align-items-end overflow-hidden rounded-2" :style="{ backgroundImage: 'url(' + image + ')' }">
+      <figcaption class="card-title-overlay d-flex align-items-end mb-3 ms-3">
+        <h2 class="m-0 pe-3">{{ title }}</h2>
+      </figcaption>
+    </figure>
+  </router-link>
 </template>
 
 
@@ -52,7 +52,6 @@ export default {
 }
 
 .card-title-overlay {
-  word-break: break-word;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
 }
 

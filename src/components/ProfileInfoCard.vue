@@ -27,7 +27,7 @@ export default {
 <template>
   <section class="bg-white rounded-2 px-4 py-2 position-relative">
 
-    <header class="text-center mt-5 mb-4">
+    <header class="text-center mt-4 mb-4">
       <img :src="user.photoUrl" :alt="user.name" class="profile-picture rounded-circle">
     </header>
 
@@ -71,7 +71,7 @@ export default {
 }
 
 .edit-info-icon {
-  top: 50px;
+  top: 10px;
   right: 30px;
   cursor: pointer;
 }

@@ -3,17 +3,17 @@ import CategoryCard from './CategoryCard.vue';
 
 
 const categories = [
-  { title: 'Træ<br>& tømmer', url: '-', image: '/img/categoryImages/wood.jpg' },
-  { title: 'Murværk<br> & tegl', url: '-', image: '/img/categoryImages/brick.jpg' },
-  { title: 'Fundament<br>& sten', url: '-', image: '/img/categoryImages/concrete.jpg' },
-  { title: 'Overflade- <br>behandling', url: '-', image: '/img/categoryImages/surface.jpg' },
-  { title: 'Døre<br>& vinduer', url: '-', image: '/img/categoryImages/windows.png' },
-  { title: 'Rør<br>& ledninger', url: '-', image: '/img/categoryImages/tubes.jpg' },
-  { title: 'Maskiner<br>& værktøj', url: '-', image: '/img/categoryImages/tools.jpg' },
-  { title: 'Beslag, skruer<br>& tilbehør', url: '-', image: '/img/categoryImages/bolts.jpg' },
-  { title: 'Gratis<br>restmaterialer', url: '-', image: '/img/categoryImages/free.jpg' },
-  { title: 'Inventar<br>& indretning', url: '-', image: '/img/categoryImages/renovation.jpg' },
-  { title: 'Tag<br>& isolering', url: '-', image: '/img/categoryImages/roof.jpg' },
+  { title: 'Træ & tømmer', url: '/fallback', image: '/img/categoryImages/wood.jpg' },
+  { title: 'Murværk & tegl', url: '/fallback', image: '/img/categoryImages/brick.jpg' },
+  { title: 'Fundament & sten', url: '/fallback', image: '/img/categoryImages/concrete.jpg' },
+  { title: 'Overflade- behandling', url: '/fallback', image: '/img/categoryImages/surface.jpg' },
+  { title: 'Døre & vinduer', url: '/fallback', image: '/img/categoryImages/windows.png' },
+  { title: 'Rør & ledninger', url: '/fallback', image: '/img/categoryImages/tubes.jpg' },
+  { title: 'Maskiner & værktøj', url: '/fallback', image: '/img/categoryImages/tools.jpg' },
+  { title: 'Beslag, skruer & tilbehør', url: '/fallback', image: '/img/categoryImages/bolts.jpg' },
+  { title: 'Gratis restmaterialer', url: '/fallback', image: '/img/categoryImages/free.jpg' },
+  { title: 'Inventar & indretning', url: '/fallback', image: '/img/categoryImages/renovation.jpg' },
+  { title: 'Tag & isolering', url: '/fallback', image: '/img/categoryImages/roof.jpg' },
 ];
 
 
@@ -46,35 +46,39 @@ export default {
 </script>
 
 <template>
-  <div>
-    <h2 class="mt-4 mb-3">Udforsk kategorier</h2>
+  <section>
+    <h2 class="mt-5 mb-3">Udforsk kategorier</h2>
     
-    <div class="row g-2">
-      <div
+    <ul class="row g-2 list-unstyled">
+      <li
         v-for="category in displayedCategories"
        :key="category.title"
-       class="col-6 col-sm-6 col-md-4 col-lg-3"
+       class="col-6 col-sm-6 col-md-4 col-lg-3 title-break"
       >
         <CategoryCard
         :title="category.title"
         :image="category.image"
         :category-link="category.url"
         />
-      </div>
-    </div>
+      </li>
+    </ul>
 
-    <div class="mt-2 text-primary fw-bold">
-        <span 
-          v-if="categories.length > initialDisplayCount" 
-          @click="toggleDisplay" 
-        >
-          {{ isExpanded ? 'Se mindre -' : 'Se flere +' }}
-        </span>
-    </div>
-  </div>
+    <button 
+      v-if="categories.length > initialDisplayCount" 
+      @click="toggleDisplay" 
+      class="btn mt-2 p-0 text-primary fw-bold"
+      :aria-expanded="isExpanded ? 'true' : 'false'"
+      aria-controls="category-grid" 
+    >
+      {{ isExpanded ? 'Se mindre -' : 'Se flere +' }}
+    </button>
+        
+  </section>
 </template>
 
 
 <style scoped>
-
+.title-break {
+  white-space: pre-line;
+}
 </style>

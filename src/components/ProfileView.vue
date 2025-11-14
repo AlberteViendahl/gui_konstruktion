@@ -26,23 +26,36 @@ export default {
 
 <template>
   <div class="container">
-    <nav class="tabs mt-4 d-flex justify-content-evenly">
-        <button :class="{ active: activeTab === 'info' }" @click="activeTab = 'info'">
+    <nav class="tabs mt-5 d-flex">
+      <ul class="list-unstyled d-flex w-100 justify-content-evenly" role="tablist">
+        <li role="presentation">
+          <button id="info-tab" :class="{ active: activeTab === 'info' }" @click="activeTab = 'info'" role="tab" aria-controls="info-panel"
+            :aria-selected="activeTab === 'info' ? 'true' : 'false'">
             Information
-        </button>
-
-        <button :class="{ active: activeTab === 'sales' }" @click="activeTab = 'sales'">
+          </button>
+        </li>
+        <li role="presentation">
+          <button id="sales-tab" :class="{ active: activeTab === 'sales' }" @click="activeTab = 'sales'" role="tab" aria-controls="sales-panel"
+            :aria-selected="activeTab === 'sales' ? 'true' : 'false'">
             Mine salg
-        </button>
+          </button>
+        </li>
+      </ul>    
     </nav>
-    <div class="tab-separator-bar px-5 mt-2" :class="{ 'sales-active': activeTab === 'sales' }"></div>
+    <div class="tab-separator-bar w-100 px-5 mt-2 mb-4" :class="{ 'sales-active': activeTab === 'sales' }"></div>
     
     <section class="tab-content">
-        <div v-if="activeTab === 'info'">
+        <div v-if="activeTab === 'info'" 
+        id="info-panel"
+        role="tabpanel"
+        aria-labelledby="info-tab">
           <ProfileInfoCard :user="user" />
         </div>
 
-        <div v-else-if="activeTab === 'sales'">
+        <div v-else-if="activeTab === 'sales'"
+        id="sales-panel"
+        role="tabpanel"
+        aria-labelledby="sales-tab">
           <ProfileMySales :user-id="user.id" />
         </div>
     </section>
@@ -51,13 +64,13 @@ export default {
 
 
 <style scoped>
+.container {
+  margin-top: 120px;
+}
 
 .tab-separator-bar {
     height: 2px;
-    width: 100%;
     background: linear-gradient(to right, #eee 50%, #eee 50%);
-    margin-top: 0;
-    margin-bottom: 20px;
     transition: background 0.3s ease-in-out;
 }
 
