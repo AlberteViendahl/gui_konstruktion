@@ -15,10 +15,14 @@ export default {
       type: [String, Number],
       default: 1, // hvis du ikke sender noget, vises "1" automatisk
     },
+    initialLiked: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
-      liked: false, // til at tracke om produktet er favoritter
+      liked: this.initialLiked,
     };
   },
   methods: {

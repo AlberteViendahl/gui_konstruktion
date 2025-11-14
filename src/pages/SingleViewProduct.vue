@@ -38,42 +38,46 @@ export default {
   data() {
     return {
       products: [
-        { id: '1', 
-        title: 'Røde mursten', 
-        image: '/img/mursten.jpg', 
-        price: 2000, 
-        quantity: 20, 
-        description: 'High-quality red bricks', 
-        location: 'Roskilde, Sjælland', 
-        material: 'Sten' },
-
-        { id: '2', 
-        title: 'Paller', 
-        image: '/img/paller.jpg', 
-        price: 1500, 
-        quantity: 5, 
-        description: 'Foskellige type paller', 
-        location: 'København, Syd', 
-        material: 'Træ' },
-
-        { id: '3', 
-        title: 'Tagsten', 
-        image: '/img/tagsten.jpg', 
-        price: 3000, 
-        quantity: 50, 
-        description: 'Durable roof tiles', 
-        location: 'Aarhus, Jylland',
-        material: 'Træ' },
-
-
-        { id: '4', 
-        title: 'Træbrædder', 
-        image: '/img/træ.jpg', 
-        price: 500, 
-        quantity: 40, 
-        description: 'Træbrædder i forskellige størrelser Træbrædder i forskellige størrelser Træbrædder i forskellige størrelser', 
-        location: 'Korsør, Sjælland',
-        material: 'Træ' }
+        { 
+          id: '1', 
+          title: 'Røde mursten', 
+          image: '/img/mursten.jpg', 
+          price: 2000, 
+          quantity: 20, 
+          description: 'High-quality red bricks', 
+          location: 'Roskilde, Sjælland', 
+          material: 'Sten' 
+        },
+        { 
+          id: '2', 
+          title: 'Paller', 
+          image: '/img/paller.jpg', 
+          price: 1500, 
+          quantity: 5, 
+          description: 'Foskellige type paller', 
+          location: 'København, Syd', 
+          material: 'Træ' 
+        },
+        { 
+          id: '3', 
+          title: 'Tagsten', 
+          image: '/img/tagsten.jpg', 
+          price: 3000, 
+          quantity: 50, 
+          description: 'Durable roof tiles', 
+          location: 'Aarhus, Jylland',
+          material: 'Træ' 
+        },
+        { 
+          id: '4', 
+          title: 'Træbrædder', 
+          image: '/img/træ.jpg', 
+          price: 500, 
+          quantity: 40, 
+          description: 'Træbrædder i forskellige størrelser Træbrædder i forskellige størrelser Træbrædder i forskellige størrelser', 
+          location: 'Korsør, Sjælland',
+          material: 'Træ' 
+        }
       ],
       product: null
     }
