@@ -1,12 +1,23 @@
 // Custom.scss
 // Option B: Include parts of Bootstrap
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Wallpoet&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "bootstrap/scss/functions";
 
 // 2. Include any default variable overrides here
 $primary: #008080;
 $secondary: #FBF7EF;
+
+$font-family-sans-serif: 'Inter', Helvetica, Arial, sans-serif;
+$headings-font-family: 'Poppins', Arial, sans-serif;
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "bootstrap/scss/variables";
@@ -62,3 +73,8 @@ $secondary: #FBF7EF;
 
 // 8. Add additional custom code here
 @import 'bootstrap-icons/font/bootstrap-icons.css';
+
+
+.homepage-logo {
+    font-family: 'Wallpoet', sans-serif;
+}
