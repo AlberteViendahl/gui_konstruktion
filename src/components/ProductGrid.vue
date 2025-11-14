@@ -42,7 +42,7 @@ export default {
         material: 'Stenart' },
 
         { id: '4', 
-        title: 'Træbrædder', 
+        title: 'Brædder', 
         image: '/img/træ.jpg', 
         price: 500, 
         quantity: 40, 
