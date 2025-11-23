@@ -20,47 +20,7 @@ export default {
     return {
       search: '',
       localSelectedCategory: '',
-      products: [
-        { id: '1', 
-        title: 'Røde mursten', 
-        image: '/img/mursten.jpg', 
-        price: 2000, 
-        quantity: 20, 
-        description: 'High-quality red bricks', 
-        location: 'Roskilde, Sjælland',
-        material: 'Sten',
-        category: 'murværk & tegl' },
-
-        { id: '2', 
-        title: 'Paller', 
-        image: '/img/paller.jpg', 
-        price: 1500, 
-        quantity: 5, 
-        description: 'Different types of pallets', 
-        location: 'København, Syd',
-        material: 'Træ',
-        category: 'træ & tømmer' },
-
-        { id: '3', 
-        title: 'Tagsten', 
-        image: '/img/tagsten.jpg', 
-        price: 3000, 
-        quantity: 50, 
-        description: 'Durable roof tiles', 
-        location: 'Aarhus, Jylland',
-        material: 'Stenart',
-        category: 'tag & isolering' },
-
-        { id: '4', 
-        title: 'Brædder', 
-        image: '/img/træ.jpg', 
-        price: 500, 
-        quantity: 40, 
-        description: 'Træbrædder i forskellige størrelser', 
-        location: 'Korsør, Sjælland',
-        material: 'Træ',
-        category: 'træ & tømmer' }
-      ],
+      products: [],
     };
   },
   computed: {
@@ -109,7 +69,29 @@ export default {
       this.localSelectedCategory = '';
       // Emit to parent to clear URL filter
       this.$emit('clear-filters');
-    }
+    },
+    async getProducts() {
+      // this.isLoading = true;
+      // this.error = null;
+      
+      try {
+        const response = await fetch('http://localhost:8080/api/products');
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        this.products = data;
+        console.log(this.products);
+        
+      } catch (err) {
+        // this.error = err.message;
+        console.error('Failed to fetch products:', err);
+      } finally {
+        // this.isLoading = false;
+      }
+    },
   },
   watch: {
     // When URL category changes, update the dropdown to match
@@ -122,6 +104,9 @@ export default {
       },
       immediate: true
     }
+  },
+  mounted(){
+    this.getProducts();
   }
 };
 </script>
@@ -153,13 +138,13 @@ export default {
     <ul class="row list-unstyled">
       <li class="col-6 p-1" v-for="p in filteredProducts" :key="p.id">
         <ProductCard
-          :id="p.id"
-          :title="p.title"
-          :image="p.image"
-          :price="p.price"
-          :quantity="p.quantity"
+          :id="p.prodID"
+          :title="p.prodName"
+          :image="p.prodImage"
+          :price="p.prodPrice"
+          :quantity="p.prodAmount"
           :material="p.material"
-        />
+          />
       </li>
     </ul>
   </section>

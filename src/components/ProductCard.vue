@@ -1,10 +1,13 @@
 <script>
 import Grading from "./Grading.vue";
+import DeleteProductForm from "./DeleteProductForm.vue";
 
 export default {
   name: "ProductCard",
   components: {
     Grading,
+    DeleteProductForm
+
   },
   props: {
     id: String,
@@ -18,11 +21,13 @@ export default {
     initialLiked: {
       type: Boolean,
       default: false
-    }
+    },
+    myProduct: Boolean
   },
   data() {
     return {
       liked: this.initialLiked,
+      prodID: this.id
     };
   },
   methods: {
@@ -38,6 +43,9 @@ export default {
       this.liked = !this.liked;
     },
   },
+  mounted(){
+    console.log(this.id);
+  }
 };
 </script>
 
@@ -65,7 +73,7 @@ export default {
           <i v-if="this.liked" class="bi bi-heart-fill teal"></i>
         </button>
       </div>
-
+      <DeleteProductForm :id="prodID"/>
     </div>
   </div>
 </template>
@@ -97,6 +105,10 @@ export default {
 
 .card-title {
   overflow-wrap: break-word;
+}
+
+.trash-icon {
+  fill: red;
 }
 
 </style>
