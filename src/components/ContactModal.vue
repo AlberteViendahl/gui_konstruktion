@@ -9,7 +9,6 @@
 
     function verifyUser(){
         verified.value = !verified.value;
-        console.log(verified.value);
     }
 </script>
 

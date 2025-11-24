@@ -11,7 +11,7 @@ export default {
    
   },
   mounted() {
-    console.log('hello from profilepage')
+    
   }
 }
 </script>

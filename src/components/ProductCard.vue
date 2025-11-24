@@ -1,12 +1,14 @@
 <script>
 import Grading from "./Grading.vue";
 import DeleteProductForm from "./DeleteProductForm.vue";
+import UpdateProductForm from "./UpdateProductForm.vue";
 
 export default {
   name: "ProductCard",
   components: {
     Grading,
-    DeleteProductForm
+    DeleteProductForm,
+    UpdateProductForm
 
   },
   props: {
@@ -44,7 +46,6 @@ export default {
     },
   },
   mounted(){
-    console.log(this.id);
   }
 };
 </script>
@@ -73,7 +74,9 @@ export default {
           <i v-if="this.liked" class="bi bi-heart-fill teal"></i>
         </button>
       </div>
+
       <DeleteProductForm :id="prodID"/>
+      <UpdateProductForm :id="prodID"/>
     </div>
   </div>
 </template>
