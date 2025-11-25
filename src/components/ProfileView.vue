@@ -12,52 +12,111 @@ export default {
     return {
       activeTab: 'info',
       user: {
-        id: 111,
-        name: 'Søren Nielsen',
-        address: 'Lysalleen 117, Roskilde',
-        phone: '+45 40 81 00 32',
-        email: 'soren.nielsen@eksempel.dk',
-        photoUrl: '/img/soren.jpg' 
+        userID: 1,
+        name: '',
+        email: '',
+        phone: '',
+        address: '',
+        photoUrl: ''
       }
     };
-  }  
+  },
+  methods: {
+
+    async fetchUserData() {
+      console.log('Henter brugerdata fra API...');
+
+      try {
+        const response = await fetch(`http://localhost:8080/api/users/${this.user.userID}`);
+
+        if (!response.ok) {
+          throw new Error(`Fejl ved hentning: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        Object.assign(this.user, {
+          userID: data.userID,
+          name: data.userName,
+          email: data.userEmail,
+          phone: data.userPhone,
+          address: data.userAddress,
+          photoUrl: data.userImage
+        });
+
+        console.log('Brugerdata hentet.');
+      } 
+      catch (error) {
+        console.error('Kunne ikke hente brugerdata:', error);
+
+        Object.assign(this.user, {
+          name: 'Fejl ved indlæsning',
+          email: '',
+          phone: '',
+          address: '',
+          photoUrl: '/img/placeholder.jpg'
+        });
+      }
+    },
+
+    handleProfileReload() {
+      console.log('ProfileInfoCard signalerede opdatering → reloader');
+      this.fetchUserData();
+    }
+  },
+
+  mounted() {
+    this.fetchUserData();
+  }
 }
 </script>
+
+<!-- I template skal du sikre, at du lytter efter 
+ @profile-reload på din ProfileInfoCard og håndterer 
+ indlæsningstilstande (v-if="user"). -->
 
 <template>
   <div class="container">
     <nav class="tabs mt-5 d-flex">
       <ul class="list-unstyled d-flex w-100 justify-content-evenly" role="tablist">
         <li role="presentation">
-          <button id="info-tab" :class="{ active: activeTab === 'info' }" @click="activeTab = 'info'" role="tab" aria-controls="info-panel"
-            :aria-selected="activeTab === 'info' ? 'true' : 'false'">
+          <button
+            id="info-tab"
+            :class="{ active: activeTab === 'info' }"
+            @click="activeTab = 'info'"
+            role="tab"
+          >
             Information
           </button>
         </li>
+
         <li role="presentation">
-          <button id="sales-tab" :class="{ active: activeTab === 'sales' }" @click="activeTab = 'sales'" role="tab" aria-controls="sales-panel"
-            :aria-selected="activeTab === 'sales' ? 'true' : 'false'">
+          <button
+            id="sales-tab"
+            :class="{ active: activeTab === 'sales' }"
+            @click="activeTab = 'sales'"
+            role="tab"
+          >
             Mine salg
           </button>
         </li>
-      </ul>    
+      </ul>
     </nav>
-    <div class="tab-separator-bar w-100 px-5 mt-2 mb-4" :class="{ 'sales-active': activeTab === 'sales' }"></div>
-    
-    <section class="tab-content">
-        <div v-if="activeTab === 'info'" 
-        id="info-panel"
-        role="tabpanel"
-        aria-labelledby="info-tab">
-          <ProfileInfoCard :user="user" />
-        </div>
 
-        <div v-else-if="activeTab === 'sales'"
-        id="sales-panel"
-        role="tabpanel"
-        aria-labelledby="sales-tab">
-          <ProfileMySales :user-id="user.id" />
-        </div>
+    <div class="tab-separator-bar w-100 px-5 mt-2 mb-4" :class="{ 'sales-active': activeTab === 'sales' }"></div>
+
+    <section class="tab-content">
+
+      <div v-if="activeTab === 'info'">
+        <ProfileInfoCard 
+        :user="user" 
+        @profile-reload="handleProfileReload" />
+      </div>
+
+      <div v-else-if="activeTab === 'sales'">
+        <ProfileMySales :user-id="user.userID" />
+      </div>
+
     </section>
   </div>
 </template>

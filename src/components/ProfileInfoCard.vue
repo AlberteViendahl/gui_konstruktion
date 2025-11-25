@@ -1,13 +1,19 @@
 <script>
 import edit from '@/assets/icons/edit-icon.svg';
+import UpdateUserForm from '@/components/UpdateUserForm.vue';  
 
 export default {
   name: 'ProfileInfoCard',
+  components: {
+    //Registrer komponenten
+    UpdateUserForm, 
+  },
   props: { 
     user: {
       type: Object,
       required: true,
       validator: (user) => {
+        // Tilføj 'userID' til validatoren, hvis det er påkrævet for UpdateUserForm
         return ['name', 'address', 'phone', 'photoUrl', 'email'].every(
         key => user[key] !== undefined
       );}
@@ -21,6 +27,20 @@ export default {
       editSvgPath: edit 
     }
   },
+  methods: {
+    handleUserUpdated() {
+        // Hvis brugeren opdateres, skal du sikre dig, 
+        // at ProfileInfoCard viser de nye data.
+        // Dette gøres typisk ved at:
+        
+        // 1. (Bedst) Sende en event op til den side (View), der ejer brugerdataen,
+        // og bede den genindlæse profildata fra API'et.
+        // Løsning 1 er mest robust for nuværende Options API struktur:
+        // this.$parent.reloadUserData(); // <-- Hvis forælderen har en metode til genindlæsning
+            this.$emit('profile-reload');
+
+      }
+  }
 }
 </script>
 
@@ -31,9 +51,10 @@ export default {
       <img :src="user.photoUrl" :alt="user.name" class="profile-picture rounded-circle">
     </header>
 
-    <button type="button" class="edit-info-icon position-absolute border-0 bg-transparent" aria-label="edit-profile">
-          <img :src="editSvgPath" alt="rediger profil" class="edit-icon">
-    </button>
+    <UpdateUserForm 
+        :id="user.id || user.userID" 
+        @user-updated="handleUserUpdated" 
+    />
 
     <dl class="profile-details p-4 rounded-4">
       <dt class="label">Navn</dt>
@@ -47,6 +68,7 @@ export default {
 
       <dt class="label mt-3">Email</dt>
       <dd class="value">{{ user.email }}</dd>
+      
     </dl>
   </section>
 </template>

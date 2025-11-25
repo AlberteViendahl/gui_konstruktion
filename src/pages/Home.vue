@@ -5,11 +5,12 @@
         <span class="text-primary">Re</span>Build
       </h1>
     </header>
-    
+
     <ProductGrid 
       :category-filter="selectedCategory" 
       @clear-filters="clearFilter"
     />
+    
   </section>
 </template>
 
