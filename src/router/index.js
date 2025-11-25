@@ -7,6 +7,10 @@ import Search from "@/pages/Search.vue";
 import Liked from "@/pages/Liked.vue";
 import SingleViewProduct from '@/pages/SingleViewProduct.vue';
 import FallbackPage from '@/pages/FallbackPage.vue';
+import AdminPage from '@/pages/AdminPage.vue';
+import CreateUserPage from '@/pages/CreateUserPage.vue';
+
+
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -14,6 +18,8 @@ const routes = [
   { path: "/search", name: "Search", component: Search },
   { path: "/liked", name: "Liked", component: Liked },
   { path: "/fallback", name: "Fallback", component: FallbackPage },
+  { path: "/adminpage", name: "AdminPage", component: AdminPage },
+  { path: "/createuserpage", name: "CreateUserPage", component: CreateUserPage },
   { path: '/products/:id', name: 'SingleViewProduct', component: SingleViewProduct } // ← :id her
 
 ];
