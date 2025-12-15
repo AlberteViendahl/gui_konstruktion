@@ -17,7 +17,7 @@
         <section v-if="!verified">
             <h2>Kontakt</h2>
             <p>Hvis du vil kontakte sælger så skal du verificeres med MitId.</p>
-            <button @click="verifyUser" class="custom-btn rounded-pill w-100 p-2"><img class="mitid-logo" src="/public/img/mitid-white.svg"></button>
+            <button @click="verifyUser" class="custom-btn rounded-pill w-100 p-2"><img class="mitid-logo" src="/public/img/mitid-white.svg" alt="Logo of Mitid."></button>
         </section>
 
         <section v-if="verified">

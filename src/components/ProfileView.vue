@@ -60,7 +60,6 @@ export default {
     },
 
     handleProfileReload() {
-      console.log('ProfileInfoCard signalerede opdatering → reloader');
       this.fetchUserData();
     }
   },
@@ -71,34 +70,16 @@ export default {
 }
 </script>
 
-<!-- I template skal du sikre, at du lytter efter 
- @profile-reload på din ProfileInfoCard og håndterer 
- indlæsningstilstande (v-if="user"). -->
-
 <template>
   <div class="container">
     <nav class="tabs mt-5 d-flex">
       <ul class="list-unstyled d-flex w-100 justify-content-evenly" role="tablist">
         <li role="presentation">
-          <button
-            id="info-tab"
-            :class="{ active: activeTab === 'info' }"
-            @click="activeTab = 'info'"
-            role="tab"
-          >
-            Information
-          </button>
+          <button id="info-tab" :class="{ active: activeTab === 'info' }" @click="activeTab = 'info'" role="tab">Information</button>
         </li>
 
         <li role="presentation">
-          <button
-            id="sales-tab"
-            :class="{ active: activeTab === 'sales' }"
-            @click="activeTab = 'sales'"
-            role="tab"
-          >
-            Mine salg
-          </button>
+          <button id="sales-tab" :class="{ active: activeTab === 'sales' }" @click="activeTab = 'sales'"role="tab">Mine salg</button>
         </li>
       </ul>
     </nav>
@@ -108,9 +89,7 @@ export default {
     <section class="tab-content">
 
       <div v-if="activeTab === 'info'">
-        <ProfileInfoCard 
-        :user="user" 
-        @profile-reload="handleProfileReload" />
+        <ProfileInfoCard :user="user" @profile-reload="handleProfileReload" />
       </div>
 
       <div v-else-if="activeTab === 'sales'">

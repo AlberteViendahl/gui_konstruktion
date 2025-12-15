@@ -35,7 +35,7 @@
 
 <template>
     <button type="button" @click.stop class="custom-btn" data-bs-toggle="modal" :data-bs-target="`#deleteProductModal-${id}`">
-        <img :src="trashIcon" alt="trash" class="trash-icon bg-danger rounded-circle p-1"> 
+        <img :src="trashIcon" alt="Trash-icon." class="trash-icon bg-danger rounded-circle p-1"> 
       </button>
 
       <!-- Modal -->

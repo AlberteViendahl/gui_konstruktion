@@ -1,12 +1,6 @@
 <template>
   <form>
-    <input
-    class="w-100 p-2 rounded-1 mb-3"
-    type="text"
-    v-model="localSearch"
-    placeholder="Søg efter materiale..."
-    @input="$emit('update-search', localSearch)"
-    />
+    <input class="w-100 p-2 rounded-1 mb-3" type="text" v-model="localSearch" placeholder="Søg efter materiale" aria-label="Søg efter materiale" @input="$emit('update-search', localSearch)"/>
   </form>
 </template>
 
