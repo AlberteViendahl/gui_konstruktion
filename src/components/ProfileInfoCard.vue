@@ -51,12 +51,9 @@ export default {
       <img :src="user.photoUrl" :alt="user.name" class="profile-picture rounded-circle">
     </header>
 
-    <UpdateUserForm 
-        :id="user.id || user.userID" 
-        @user-updated="handleUserUpdated" 
-    />
-
+    
     <dl class="profile-details p-4 rounded-4">
+      <UpdateUserForm :id="user.id || user.userID" @user-updated="handleUserUpdated" />
       <dt class="label">Navn</dt>
       <dd class="value">{{ user.name }}</dd>
       

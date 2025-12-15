@@ -78,32 +78,32 @@ export default {
     <img :src="editIcon" alt="Rediger ikon" />
   </button>
 
-  <div class="modal fade" :id="`updateUserModal-${id}`" tabindex="-1" aria-hidden="true">
+  <div class="modal fade" :id="`updateUserModal-${id}`" tabindex="-1" aria-hidden="true" aria-label="Åbne skema for at opdatere bruger">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Opdater Bruger (ID: {{ id }})</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title">Opdater Bruger</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Luk"></button>
         </div>
 
         <form class="p-3" @submit.prevent="updateUser">
           <div class="mb-3">
             <label class="form-label">Navn</label>
-            <input type="text" v-model="user.userName" class="form-control" required />
+            <input type="text" v-model="user.userName" class="form-control" required aria-label="Skriv nyt navn" placeholder="Skriv nyt navn" />
           </div>
           <div class="mb-3">
             <label class="form-label">Email</label>
-            <input type="email" v-model="user.userEmail" class="form-control" required />
+            <input type="email" v-model="user.userEmail" class="form-control" required aria-label="Skriv ny email" placeholder="Skriv ny email"/>
           </div>
           <div class="mb-3">
             <label class="form-label">Telefon</label>
-            <input type="tel" v-model="user.userPhone" class="form-control" />
+            <input type="tel" v-model="user.userPhone" class="form-control" aria-label="Skriv nyt telefonnummer" placeholder="Skriv nyt telefonnummer"/>
           </div>
           <div class="mb-3">
             <label class="form-label">Adresse</label>
-            <input type="text" v-model="user.userAddress" class="form-control" />
+            <input type="text" v-model="user.userAddress" class="form-control" aria-label="Skriv ny adresse" placeholder="Skriv ny adresse"/>
           </div>
-          <button type="submit" class="btn btn-primary mt-3">Opdater bruger</button>
+          <button type="submit" class="btn btn-primary mt-3" aria-label="Opdater produkt" :data-bs-toggle="isDataLoaded ? 'modal' : ''">Opdater bruger</button>
         </form>
       </div>
     </div>

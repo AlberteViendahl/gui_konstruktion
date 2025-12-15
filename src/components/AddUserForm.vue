@@ -59,26 +59,26 @@ export default {
 <template>
   <div>
     <!-- Runde ikon-knap med plus -->
-    <button type="button" class="icon-btn" @click="showModal = true">
+    <button type="button" class="icon-btn" @click="showModal = true" aria-label="Åbne skema for at oprette ny bruger">
       <img :src="plusSvgPath" alt="Opret bruger" class="icon-img"/>
     </button>
 
     <!-- Modal -->
-    <div v-if="showModal" class="modal-backdrop">
+    <div v-if="showModal" class="modal-backdrop" aria-modal="true" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5>Opret ny bruger</h5>
-            <button type="button" class="btn-close" @click="closeModal"></button>
+            <button type="button" class="btn-close" @click="closeModal" aria-label="Luk dialog"></button>
           </div>
           <div class="modal-body">
             <form @submit.prevent="createUser">
-              <input v-model="newUser.userName" placeholder="Navn" class="form-control mb-2" required/>
-              <input v-model="newUser.userEmail" placeholder="Email" class="form-control mb-2" required/>
-              <input v-model="newUser.userPhone" placeholder="Telefon" class="form-control mb-2"/>
-              <input v-model="newUser.userAddress" placeholder="Adresse" class="form-control mb-2"/>
-              <input v-model="newUser.userImage" placeholder="Billede URL" class="form-control mb-2"/>
-              <button type="submit" class="btn custom-blue-btn mt-2">Opret</button>
+              <input v-model="newUser.userName" placeholder="Navn" class="form-control mb-2" aria-label="Dit navn"required/>
+              <input v-model="newUser.userEmail" placeholder="Email" class="form-control mb-2" aria-label="Din email" required/>
+              <input v-model="newUser.userPhone" placeholder="Telefon" class="form-control mb-2" aria-label="Din telefon"/>
+              <input v-model="newUser.userAddress" placeholder="Adresse" class="form-control mb-2" aria-label="Dina adresse"/>
+              <input v-model="newUser.userImage" placeholder="Profilbillede" class="form-control mb-2" aria-label="Profilbillede"/>
+              <button type="submit" class="btn custom-blue-btn mt-2" aria-label="Opret ny bruger">Opret</button>
             </form>
           </div>
         </div>

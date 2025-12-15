@@ -57,87 +57,36 @@ export default {
 </script>
 
 <template>
-  <button
-    type="button"
-    @click.stop
-    class="custom-btn"
-    data-bs-toggle="modal"
-    :data-bs-target="`#updateProductModal-${id}`"
-  >
+  <button type="button" @click.stop class="custom-btn" data-bs-toggle="modal" :data-bs-target="`#updateProductModal-${id}`" >
     <img :src="editIcon" alt="Plus ikon" class="" />
   </button>
 
   <!-- Modal -->
-  <div
-    class="modal fade"
-    :id="`updateProductModal-${id}`"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-    @click.stop
-  >
+  <div class="modal fade" :id="`updateProductModal-${id}`" tabindex="-1" aria-hidden="true" aria-label="Åpne skema for at opdatere din bruger" @click.stop >
     <div class="modal-dialog modal-dialog-centered" @click.stop>
       <div class="modal-content" @click.stop>
         <form name="addProductForm" class="p-3" @submit="updateProduct">
           <div class="mb-3">
             <label for="prodName" class="form-label">Produktnavn</label>
-            <input
-              type="text"
-              v-model="product.prodName"
-              class="form-control"
-              id="prodName"
-              name="prodName"
-              aria-describedby="prodName"
-            />
-            <div id="prodNameHelp" class="form-text">
-              Produktnavn skal udfyldes
-            </div>
+            <input type="text" v-model="product.prodName" class="form-control" id="prodName" name="prodName" aria-describedby="prodName" aria-label="Skriv nyt navn på produktet" placeholder="Skriv nyt navn på produktet"/>
           </div>
           <div class="mb-3">
             <label for="prodDesc" class="form-label">Beskrivelse</label>
-            <input
-              type="text"
-              v-model="product.prodDesc"
-              class="form-control"
-              id="prodDesc"
-              name="prodDesc"
-              aria-describedby="prodDesc"
-            />
+            <input type="text" v-model="product.prodDesc" class="form-control" id="prodDesc" name="prodDesc" aria-describedby="prodDesc" aria-label="Skriv ny produktbeskrivelse på produktet" placeholder="Skriv ny produktbeskrivelse på produktet"/>
           </div>
           <div class="mb-3">
             <label for="prodAmount" class="form-label">Antal</label>
-            <input
-              type="number"
-              v-model="product.prodAmount"
-              class="form-control"
-              id="prodAmount"
-              name="prodAmount"
-              aria-describedby="prodAmount"
-            />
+            <input type="number" v-model="product.prodAmount" class="form-control" id="prodAmount" name="prodAmount" aria-describedby="prodAmount" aria-label="Sæt antal enheder af dit produkt" placeholder="Sæt antal enheder af dit produkt"/>
           </div>
           <div class="mb-3">
             <label for="prodPrice" class="form-label">Pris</label>
-            <input
-              type="number"
-              v-model="product.prodPrice"
-              class="form-control"
-              id="prodPrice"
-              name="prodPrice"
-              aria-describedby="prodPrice"
-            />
+            <input type="number" v-model="product.prodPrice" class="form-control" id="prodPrice" name="prodPrice" aria-describedby="prodPrice" aria-label="Sæt pris på dit produkt" placeholder="Sæt pris på dit produkt"/>
           </div>
           <div class="mb-3">
             <label for="prodLocation" class="form-label">Lokation</label>
-            <input
-              type="text"
-              v-model="product.prodLocation"
-              class="form-control"
-              id="prodLocation"
-              name="prodLocation"
-              aria-describedby="prodLocation"
-            />
+            <input type="text" v-model="product.prodLocation" class="form-control" id="prodLocation" name="prodLocation" aria-describedby="prodLocation" aria-label="Sæt lokation for dit produkt" placeholder="Sæt lokation for dit produkt"/>
           </div>
-          <button type="submit" class="btn btn-primary">Update</button>
+          <button type="submit" class="btn btn-primary" aria-label="Opdater produkt">Opdater produkt</button>
         </form>
       </div>
     </div>
@@ -147,7 +96,6 @@ export default {
 <style lang="scss" scoped>
 .custom-btn {
   padding: 1px 1px;
-  // background-color: #008080;
   background-color: transparent;
   border: none;
   border-radius: 50%;
