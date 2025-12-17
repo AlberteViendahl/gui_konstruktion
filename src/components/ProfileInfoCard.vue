@@ -1,6 +1,9 @@
 <script>
 import edit from '@/assets/icons/edit-icon.svg';
 import UpdateUserForm from '@/components/UpdateUserForm.vue';  
+import locationIcon from "@/assets/icons/location.svg";
+import emailIcon from "@/assets/icons/mail.svg";
+import phoneIcon from "@/assets/icons/phone.svg";
 
 export default {
   name: 'ProfileInfoCard',
@@ -24,7 +27,10 @@ export default {
   },
   data() {
     return {
-      editSvgPath: edit 
+      editSvgPath: edit,
+      locationIcon: locationIcon,
+      phoneIcon: phoneIcon,
+      emailIcon: emailIcon, 
     }
   },
   methods: {
@@ -36,26 +42,34 @@ export default {
 </script>
 
 <template>
-  <section class="bg-white rounded-2 px-4 py-2 position-relative">
+  <section class="containter bg-white rounded-2 px-4 py-2 position-relative d-flex flex-column align-items-center">
 
-    <header class="text-center mt-4 mb-4">
+    <header class="row text-center mt-4 mb-4 align-items-center flex-column">
       <img :src="user.photoUrl" :alt="user.name" class="profile-picture rounded-circle">
+      <p class="value fs-5 mt-2">{{ user.name }}</p>
     </header>
 
-    
-    <dl class="profile-details p-4 rounded-4">
+    <div class="edit-container pe-2 pb-2 pe-lg-5 w-75">
       <UpdateUserForm :id="user.id || user.userID" @user-updated="handleUserUpdated" />
-      <dt class="label">Navn</dt>
-      <dd class="value">{{ user.name }}</dd>
+      <p class="m-0 ms-5 fs-5 d-none d-lg-block">Mine oplysninger</p>
+    </div>
+    <dl class="row w-75 profile-details p-5 rounded-4 flex-row gap-4">
       
-      <dt class="label mt-3">Adresse</dt>
-      <dd class="value">{{ user.address }}</dd>
-      
-      <dt class="label mt-3">Telefon</dt>
-      <dd class="value">{{ user.phone }}</dd>
-
-      <dt class="label mt-3">Email</dt>
-      <dd class="value">{{ user.email }}</dd>
+      <div>
+        <img :src="phoneIcon">
+        <dt class="label">Telefon</dt>
+        <dd class="value">{{ user.phone }}</dd>
+      </div>
+      <div>
+        <img :src="locationIcon">
+        <dt class="label">Adresse</dt>
+        <dd class="value">{{ user.address }}</dd>
+      </div>
+      <div>
+        <img :src="emailIcon">
+        <dt class="label">Email</dt>
+        <dd class="value">{{ user.email }}</dd>
+      </div>
       
     </dl>
   </section>
@@ -63,6 +77,23 @@ export default {
 
 
 <style lang="scss" scoped>
+
+dl {
+  div {
+    flex: 1;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    min-width: 155px;
+    .label {
+      margin-top: 10px;
+    }
+    img {
+      height: 28px;
+      width: 28px;
+    }
+  }
+}
 
 .edit-icon {
   height: 18px;
