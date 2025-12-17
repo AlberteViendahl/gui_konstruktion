@@ -1,6 +1,5 @@
 <script setup>
 import { defineProps } from 'vue';
-import BackButton from './BackButton.vue';
 
 const props = defineProps({
   title: {

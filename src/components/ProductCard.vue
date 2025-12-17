@@ -39,6 +39,9 @@ export default {
         params: { id: this.id },
       });
     },
+    handleDelete(){
+      this.$emit('product-deleted');
+    },
     // Skifter liked mellem true og false. Dette trigger computed property
     // heartClasses → hjertet skifter mellem fyldt og outline.
     toggleLike() {
@@ -75,7 +78,7 @@ export default {
         </button>
       </div>
 
-      <DeleteProductForm :id="prodID"/>
+      <DeleteProductForm :id="prodID" @product-deleted="handleDelete"/>
       <UpdateProductForm :id="prodID"/>
     </div>
   </div>

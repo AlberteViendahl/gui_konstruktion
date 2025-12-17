@@ -27,7 +27,8 @@ export default {
   },
   methods: {
     async updateProduct(event) {
-      event.preventDefault();
+      try{
+        event.preventDefault();
       const response = await fetch(
         `http://localhost:8080/api/products/${this.id}`,
         {
@@ -38,10 +39,12 @@ export default {
           body: JSON.stringify(this.product),
         }
       );
-
-      const updatedProduct = await response.json();
-      console.log(this.product);
-      console.log(updatedProduct);
+    
+      return updatedProduct = await response.json();
+      
+    } catch(error){
+      console.log(error);
+      }
     },
     async getProduct(event) {
       const response = await fetch(

@@ -25,7 +25,10 @@ export default {
       } catch(error) {
         console.log(error);
       }
-    }
+    },
+    handleDelete(){
+      this.getproducts();
+    },
   },
   mounted(){
     this.getproducts();
@@ -45,6 +48,7 @@ export default {
           :quantity="p.prodAmount"
           :material="p.material"
           :my-product="true"
+          @product-deleted="handleDelete"
         />
       </li>
     </ul>
