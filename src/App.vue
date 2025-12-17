@@ -11,15 +11,21 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container main-container">
     <RouterView />
   </div>
   <BottomBar />
 </template>
 
 <style lang="scss">
-body {
-  margin: 0px;
-  padding: 0px;
-}
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .main-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+  }
 </style>

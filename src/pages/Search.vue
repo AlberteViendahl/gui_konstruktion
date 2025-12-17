@@ -1,17 +1,12 @@
 <template>
   <section class="shop">
     <PageHeader title="Udforsk" />
-    <p>
-      Her finder du vores komplette, sorterede udvalg af genbrugte
-      byggematerialer. <br /><br />
-      Vi har inddelt alle materialer i klare kategorier, så du nemt og hurtigt
-      kan finde den præcise mængde, størrelse og kvalitet, dit projekt kræver.
-      <br /><br />
-      Vælg en kategori herunder og begynd at udforske produkter.
+    <p class="text-center fw-bolder mb-4">
+      Vi har inddelt alle materialer i klare kategorier, så du<br>nemt og hurtigt kan finde det dit projekt kræver.
     </p>
 
     <!-- Search og Filter -->
-    <form class="fands d-flex gap-2 mt-4">
+    <form class="fands d-flex gap-2 mt-5">
       <SearchComponent @update-search="search = $event" />
       <Filter @update-category="selectedCategory = $event" />
     </form>

@@ -50,6 +50,7 @@ export default {
 .category-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
+  min-width: 170px;
   background-color: transparent;
   border: none;
 }

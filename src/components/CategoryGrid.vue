@@ -50,11 +50,11 @@ export default {
   <section>
     <h2 class="mt-5 mb-3">Udforsk kategorier</h2>
     
-    <ul class="row g-2 list-unstyled">
+    <ul class="row g-2 list-unstyled flex-wrap">
       <li
         v-for="category in displayedCategories"
        :key="category.title"
-       class="col-6 col-sm-6 col-md-4 col-lg-3 title-break"
+       class="col col-sm-6 col-md-4 col-lg-3 title-break"
       >
         <CategoryCard
         :title="category.title"
