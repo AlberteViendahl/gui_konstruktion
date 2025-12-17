@@ -3,6 +3,7 @@ import CategoryCard from './CategoryCard.vue';
 
 
 const categories = [
+  { title: 'Alle kategorier', url: '/fallback', image: '/img/categoryImages/allcategories.jpg' },
   { title: 'Træ & tømmer', url: '/fallback', image: '/img/categoryImages/wood.jpg' },
   { title: 'Murværk & tegl', url: '/fallback', image: '/img/categoryImages/brick.jpg' },
   { title: 'Fundament & sten', url: '/fallback', image: '/img/categoryImages/concrete.jpg' },
