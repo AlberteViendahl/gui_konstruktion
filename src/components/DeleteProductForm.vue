@@ -21,10 +21,9 @@
                             'Content-Type': 'application/json'
                         }
                     });
-
-                    const deletedProduct = await response.json();
-                    console.log('deletedproduct: ', deletedProduct);
-                    
+                    if(response.ok){
+                        this.$emit('product-deleted');
+                    }
                 } catch(error) {
                     console.log(error);
                 }
@@ -44,7 +43,7 @@
               <div class="modal-content" @click.stop>
                     <form name="addProductForm" class="p-3 d-flex flex-column align-items-center" @submit="deleteProduct">
                             <p>Er du sikker på at du vil slette dette produktet?</p>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger" data-bs-toggle="modal">Delete</button>
                     </form>
               </div>
           </div>

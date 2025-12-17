@@ -29,16 +29,7 @@ export default {
   },
   methods: {
     handleUserUpdated() {
-        // Hvis brugeren opdateres, skal du sikre dig, 
-        // at ProfileInfoCard viser de nye data.
-        // Dette gøres typisk ved at:
-        
-        // 1. (Bedst) Sende en event op til den side (View), der ejer brugerdataen,
-        // og bede den genindlæse profildata fra API'et.
-        // Løsning 1 er mest robust for nuværende Options API struktur:
-        // this.$parent.reloadUserData(); // <-- Hvis forælderen har en metode til genindlæsning
-            this.$emit('profile-reload');
-
+        this.$emit('profile-reload');
       }
   }
 }

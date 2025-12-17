@@ -20,8 +20,8 @@ const routes = [
   { path: "/fallback", name: "Fallback", component: FallbackPage },
   { path: "/adminpage", name: "AdminPage", component: AdminPage },
   { path: "/createuserpage", name: "CreateUserPage", component: CreateUserPage },
-  { path: '/products/:id', name: 'SingleViewProduct', component: SingleViewProduct } // ← :id her
-
+  { path: '/products/:id', name: 'SingleViewProduct', component: SingleViewProduct }, // ← :id her
+  { path: '/:pathMatch(.*)*', name: '404 Not found', component: FallbackPage },
 ];
 
 const router = createRouter({
@@ -30,3 +30,8 @@ const router = createRouter({
 });
 
 export default router;
+
+
+
+
+

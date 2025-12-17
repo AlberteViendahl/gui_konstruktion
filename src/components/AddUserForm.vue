@@ -44,8 +44,7 @@ export default {
 
         // Luk modal
         this.closeModal();
-
-        alert('Bruger oprettet!');
+        this.$router.push('/')
 
       } catch (error) {
         console.error(error);
@@ -78,7 +77,7 @@ export default {
               <input v-model="newUser.userPhone" placeholder="Telefon" class="form-control mb-2" aria-label="Din telefon"/>
               <input v-model="newUser.userAddress" placeholder="Adresse" class="form-control mb-2" aria-label="Dina adresse"/>
               <input v-model="newUser.userImage" placeholder="Profilbillede" class="form-control mb-2" aria-label="Profilbillede"/>
-              <button type="submit" class="btn custom-blue-btn mt-2" aria-label="Opret ny bruger">Opret</button>
+              <button type="submit" class="btn custom-blue-btn mt-2" aria-label="Opret">Opret</button>
             </form>
           </div>
         </div>

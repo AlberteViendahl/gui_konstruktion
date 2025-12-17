@@ -22,14 +22,20 @@ export default {
   },
   methods: {
     async createProduct(event) {
-      event.preventDefault();
-      const response = await fetch("http://localhost:8080/api/products", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.newProduct),
-      });
-      const createdProduct = await response.json();
+      try {
+        event.preventDefault();
+        const response = await fetch("http://localhost:8080/api/products", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(this.newProduct),
+        });
+        if(response.ok){
+          return createdProduct = await response.json();
+        }
 
+      } catch(error){
+        console.log(error);
+      }
     },
   },
 };
