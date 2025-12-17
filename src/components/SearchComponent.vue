@@ -4,15 +4,13 @@
 </script>
 
 <template>
-  <form>
-    <input class="w-100 p-2 rounded-1 mb-3" type="text" v-model="localSearch" placeholder="Søg efter materiale" aria-label="Søg efter materiale" @input="$emit('update-search', localSearch)"/>
+  <form class="col-6 col-md-8 p-0">
+    <input class="w-100 px-3 py-2 rounded-pill mb-3" type="text" v-model="localSearch" placeholder="Søg efter materiale" aria-label="Søg efter materiale" @input="$emit('update-search', localSearch)"/>
   </form>
 </template>
 
 <style scoped>
 input {
-  max-width: 350px;
-  padding: 10px;
   border: 2px solid #008080;
 }
 </style>

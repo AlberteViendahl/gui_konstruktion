@@ -1,18 +1,21 @@
 <template>
-  <section class="shop">
+  <section class="container shop">
+    
     <PageHeader title="Udforsk" />
-    <p class="text-center fw-bolder mb-4">
-      Vi har inddelt alle materialer i klare kategorier, så du<br>nemt og hurtigt kan finde det dit projekt kræver.
-    </p>
+    <section class="row justify-content-center">
+      <p class="col-10 col-md-8 text-center fw-bolder m-0">
+        Vi har inddelt alle materialer i klare kategorier, så du nemt og hurtigt kan finde det dit projekt kræver.
+      </p>
+    </section>
 
     <!-- Search og Filter -->
-    <form class="fands d-flex gap-2 mt-5">
+    <form class="fands row mt-5 justify-content-between">
       <SearchComponent @update-search="search = $event" />
       <Filter @update-category="selectedCategory = $event" />
     </form>
 
     <!-- Liste af filtrerede materialer -->
-    <section class="material-list">
+    <section class="material-list row">
       <ul v-if="filteredProducts.length" class="list-unstyled">
         <li v-for="p in filteredProducts" :key="p.id" class="material-item">
           {{ p.name }} ({{ p.category }}) - {{ p.price }} kr

@@ -1,5 +1,5 @@
 <template>
-  <form class="filter">
+  <form class="filter col-5 col-md-3 p-0">
     <label for="category-select" class="visually-hidden">Vælg kategori:</label>
     <select
       id="category-select"
