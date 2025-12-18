@@ -27,7 +27,8 @@ export default {
   methods: {
     async getUser() {
       try {
-        const response = await fetch(`http://localhost:8080/api/users/${this.id}`);
+        //const response = await fetch(`http://localhost:8080/api/users/${this.id}`);
+        const response = await fetch(`https://rebuildapi.onrender.com/api/users/${this.id}`);
         if (!response.ok) throw new Error(`Bruger ID ${this.id} blev ikke fundet.`);
         const data = await response.json();
         this.user = { ...data }; // Bevar reaktivitet
@@ -40,7 +41,9 @@ export default {
     async updateUser(event) {
       event.preventDefault();
       try {
-        const response = await fetch(`http://localhost:8080/api/users/${this.id}`, {
+        const response = await fetch(`https://rebuildapi.onrender.com/api/users/${this.id}`, {
+        //const response = await fetch(`http://localhost:8080/api/users/${this.id}`, {
+
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(this.user)

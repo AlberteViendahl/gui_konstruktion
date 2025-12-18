@@ -27,7 +27,8 @@ export default {
       console.log('Henter brugerdata fra API...');
 
       try {
-        const response = await fetch(`http://localhost:8080/api/users/${this.user.userID}`);
+        //const response = await fetch(`http://localhost:8080/api/users/${this.user.userID}`);
+        const response = await fetch(`https://rebuildapi.onrender.com/api/users/${this.user.userID}`);
 
         if (!response.ok) {
           throw new Error(`Fejl ved hentning: ${response.status}`);

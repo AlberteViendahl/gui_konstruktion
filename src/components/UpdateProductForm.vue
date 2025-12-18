@@ -5,7 +5,8 @@ import pencil from "@/assets/icons/pencil.svg";
 export default {
   name: "UpdatedProductForm",
   props: {
-    id: String,
+    //This allows you to pass either number or string without triggering the prop type warning.
+    id: [String, Number]
   },
   data() {
     return {
@@ -13,7 +14,7 @@ export default {
       editSvgPath: edit,
       editIcon: pencil,
       product: {
-        prodUserID: 1,
+        //prodUserID: 1,
         prodName: "",
         prodDesc: "",
         prodCategory: 1,
@@ -29,8 +30,11 @@ export default {
     async updateProduct(event) {
       try{
         event.preventDefault();
+        //fra api
       const response = await fetch(
-        `http://localhost:8080/api/products/${this.id}`,
+        `https://rebuildapi.onrender.com/api/products/${this.id}`,
+        //`http://localhost:8080/api/products/${this.id}`,
+
         {
           method: "PUT",
           headers: {
@@ -40,7 +44,8 @@ export default {
         }
       );
     
-      return updatedProduct = await response.json();
+      const updatedProduct = await response.json();
+      return updatedProduct;
       
     } catch(error){
       console.log(error);
@@ -48,7 +53,8 @@ export default {
     },
     async getProduct(event) {
       const response = await fetch(
-        `http://localhost:8080/api/products/${this.id}`
+          `https://rebuildapi.onrender.com/api/products/${this.id}`,
+ // `http://localhost:8080/api/products/${this.id}`
       );
       this.product = await response.json();
     },
