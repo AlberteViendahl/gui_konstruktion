@@ -53,7 +53,7 @@ export default {
       <UpdateUserForm :id="user.id || user.userID" @user-updated="handleUserUpdated" />
       <p class="m-0 ms-5 fs-5 d-none d-lg-block">Mine oplysninger</p>
     </div>
-    <dl class="row w-75 profile-details p-5 rounded-4 flex-row gap-4">
+    <dl class="row w-75 profile-details p-0 py-5 p-md-5 rounded-4 flex-row gap-4">
       
       <div>
         <img :src="phoneIcon">

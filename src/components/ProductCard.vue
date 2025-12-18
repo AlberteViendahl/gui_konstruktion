@@ -78,8 +78,8 @@ export default {
         </button>
       </div>
 
-      <DeleteProductForm :id="prodID" @product-deleted="handleDelete"/>
-      <UpdateProductForm :id="prodID"/>
+      <DeleteProductForm v-if="$route.path === '/profil'" :id="prodID" @product-deleted="handleDelete"/>
+      <UpdateProductForm v-if="$route.path === '/profil'" :id="prodID"/>
     </div>
   </div>
 </template>

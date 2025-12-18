@@ -1,10 +1,11 @@
 <template>
   <section>
-    <PageHeader title="Produkt"  class="d-lg-none" />
+    
     <Product
       v-if="product"
       :title="product.title"
       :image="product.image"
+      :images="product.images"
       :price="product.price"
       :quantity="product.quantity"
       :description="product.description"
@@ -17,9 +18,7 @@
 </template>
 
 <style scoped>
-  section {
-    margin-top: 100px;
-  }
+  
 </style>
 
 <script>
@@ -71,7 +70,13 @@ export default {
         { 
           id: '4', 
           title: 'Træbrædder', 
-          image: '/img/træ.jpg', 
+          image: '/img/træ.jpg',
+          images: [
+            '/img/træ.jpg',
+            '/img/tagsten.jpg',
+            '/img/paller.jpg',
+            '/img/mursten.jpg'
+          ], 
           price: 500, 
           quantity: 40, 
           description: 'Træbrædder i forskellige størrelser Træbrædder i forskellige størrelser Træbrædder i forskellige størrelser', 
