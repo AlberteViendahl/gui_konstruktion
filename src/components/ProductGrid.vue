@@ -20,7 +20,44 @@ export default {
     return {
       search: '',
       localSelectedCategory: '',
-      products: [],
+      products: [
+      {
+        prodID: 101,
+        prodName: "Blå Keramik Vase",
+        prodImage: "img/paller.jpg",
+        prodPrice: 249.50,
+        prodAmount: 3,
+        material: "Stentøj",
+        category: "inventar & indretning",
+      },
+      {
+        prodID: 102,
+        prodName: "Håndvævet Gulvtæppe",
+        prodImage: "img/paller.jpg",
+        prodPrice: 1200.00,
+        prodAmount: 1,
+        material: "Uld",
+        category: "træ & tømmer",
+      },
+      {
+        prodID: 103,
+        prodName: "Moderne Lysestage",
+        prodImage: "img/paller.jpg",
+        prodPrice: 150.00,
+        prodAmount: 10,
+        material: "Messing",
+        category: "inventar & indretning",
+      },
+      {
+        prodID: 104,
+        prodName: "Minimalistisk Stol",
+        prodImage: "img/paller.jpg",
+        prodPrice: 899.00,
+        prodAmount: 2,
+        material: "Egetræ",
+        category: "træ & tømmer",
+      }
+    ],
     };
   },
   computed: {
@@ -43,11 +80,17 @@ export default {
 
       // Filter by search text
       if (this.search) {
+        const s = this.search.toLowerCase();
         filtered = filtered.filter(product =>
-          product.title.toLowerCase().includes(this.search.toLowerCase()) ||
-          product.material.toLowerCase().includes(this.search.toLowerCase()) ||
-          product.description.toLowerCase().includes(this.search.toLowerCase())
+          (product.title?.toLowerCase().includes(s) || product.prodName?.toLowerCase().includes(s)) ||
+          product.material?.toLowerCase().includes(s) ||
+          product.description?.toLowerCase().includes(s)
         );
+       // filtered = filtered.filter(product =>
+       //   product.title.toLowerCase().includes(this.search.toLowerCase()) ||
+       //  product.material.toLowerCase().includes(this.search.toLowerCase()) ||
+       //   product.description.toLowerCase().includes(this.search.toLowerCase())
+       // );
       }
 
       return filtered;
@@ -63,6 +106,7 @@ export default {
     },
     updateCategory(categoryValue) {
       this.localSelectedCategory = categoryValue;
+      this.$emit('category-changed', categoryValue);
     },
     clearAllFilters() {
       this.search = '';
@@ -113,8 +157,6 @@ export default {
 
 <template>
   <section>
-    <h2>Produkter</h2>
-    
     <!-- Filter indicator - now in ProductGrid -->
     <div v-if="activeFilter || search" class="filter-indicator mb-3">
       <span v-if="activeFilter" class="badge bg-primary me-2">
@@ -128,15 +170,15 @@ export default {
       </button>
     </div>
     
-    <form class="d-flex gap-2 mt-4">
+    <form class="d-flex gap-2 mt-4 justify-content-between">
       <SearchComponent @update-search="updateSearch" />
       <Filter 
         :model-value="localSelectedCategory" 
         @update-category="updateCategory" 
       />
     </form>
-    <ul class="row list-unstyled">
-      <li class="col-6 p-1" v-for="p in filteredProducts" :key="p.id">
+    <ul class="row product-grid list-unstyled">
+      <li class="p-1" v-for="p in filteredProducts" :key="p.id">
         <ProductCard
           :id="p.prodID"
           :title="p.prodName"
@@ -151,10 +193,41 @@ export default {
 </template>
 
 <style scoped>
+
 .card {
   background-color: #FBF7EF;
   border-radius: 0.75rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   border: none;
 }
+.product-grid {
+  display: grid;
+  gap: 15px;
+  justify-content: center; 
+  justify-items: center;
+  padding: 0;
+
+  grid-template-columns: repeat(1, 1fr);
+
+  @media (min-width: 485px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+li {
+  width: 100%;
+}
+
 </style>
