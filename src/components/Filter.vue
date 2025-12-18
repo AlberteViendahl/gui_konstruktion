@@ -9,6 +9,7 @@
       <option value="træ & tømmer">Træ & tømmer</option>
       <option value="murværk & tegl">Murværk & tegl</option>
       <option value="tag & isolering">Tag & isolering</option>
+      <option value="inventar & indretning">Inventar & indretning</option>
     </select>
   </form>
 </template>

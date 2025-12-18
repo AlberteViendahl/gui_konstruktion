@@ -29,9 +29,6 @@ export default {
   .main-container {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
-    @media (min-width: 768px) {
-      margin-top: 0;
-    }
+    
   }
 </style>
