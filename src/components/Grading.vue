@@ -16,7 +16,7 @@
 
 <!-- Button trigger modal -->
 <button type="button" @click.stop class="custom-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    <div class="grade-container">
+    <div class="grade-container bg-white rounded-circle text-primary fw-bold">
 
         <div class="circle">
             <p>{{ grading }}</p>
@@ -67,7 +67,7 @@
         position: relative;
 
         .circle {
-            border: 1px solid black;
+            border: 2px solid #008080;
             border-radius: 50%;
             width: 30px;
             height: 30px;

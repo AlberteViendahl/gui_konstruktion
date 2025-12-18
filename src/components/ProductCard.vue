@@ -69,8 +69,8 @@ export default {
         </button>
       </div>
 
-      <DeleteProductForm :id="prodID" @product-deleted="handleDelete" />
-      <UpdateProductForm :id="prodID" />
+      <DeleteProductForm v-if="$route.path === '/profil'" :id="prodID" @product-deleted="handleDelete"/>
+      <UpdateProductForm v-if="$route.path === '/profil'" :id="prodID"/>
     </div>
   </div>
 </template>
@@ -81,7 +81,7 @@ export default {
   border-radius: 0.75rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   border: none;
-  background-color: #fbf7ef;
+  background-color: #FBF7EF;
 }
 
 .card-img-top {

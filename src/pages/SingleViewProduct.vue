@@ -1,15 +1,21 @@
 <template>
   <section>
-    <PageHeader title="Produkt" />
+    
     <Product
       v-if="product"
       :title="product.title"
       :image="product.image"
+      :images="product.images"
       :price="product.price"
       :quantity="product.quantity"
       :description="product.description"
       :location="product.location"
       :material="product.material"
+      :height="product.height"        
+      :width="product.width"          
+      :length="product.length"        
+      :weight="product.weight"        
+      :quantityvalue="product.quantityvalue"
     />
     <p v-else>Produkt ikke fundet</p>
     <BackButton />
@@ -17,9 +23,7 @@
 </template>
 
 <style scoped>
-  section {
-    margin-top: 100px;
-  }
+  
 </style>
 
 <script>
@@ -71,9 +75,19 @@ export default {
         { 
           id: '4', 
           title: 'Træbrædder', 
-          image: '/img/træ.jpg', 
+          image: '/img/træ.jpg',
+          images: [
+            '/img/træ.jpg',
+            '/img/tagsten.jpg',
+            '/img/paller.jpg',
+            '/img/mursten.jpg'
+          ], 
           price: 500, 
-          quantity: 40, 
+          quantity: 40,
+          quantityvalue: 'stk',
+          height: '5',
+          width: '32',
+          length: '240', 
           description: 'Træbrædder i forskellige størrelser Træbrædder i forskellige størrelser Træbrædder i forskellige størrelser', 
           location: 'Korsør, Sjælland',
           material: 'Træ' 

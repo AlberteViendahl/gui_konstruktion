@@ -32,15 +32,15 @@ export default {
     },
   },
   mounted(){
-    this.getproducts();
+     this.getproducts();
   }
 }
 </script>
 
 <template>
-  <section class="bg-white rounded-2 p-3 position-relative h-100">
-    <ul class="row list-unstyled flex-wrap align-items-stretch">
-      <li class="col-6 p-1" v-for="p in products" :key="p.id">
+  <section class="container product-layout-section mt-0 mx-0 mx-lg-auto bg-white rounded-2 p-3 position-relative">
+    <ul class="product-grid list-unstyled">
+      <li class="" v-for="p in products" :key="p.id">
         <ProductCard
           :id="p.prodID"
           :title="p.prodName"
@@ -53,13 +53,43 @@ export default {
         />
       </li>
     </ul>
+    <AddProductForm />
   </section>
-  <AddProductForm />
+  
 </template>
 
 
 <style lang="scss" scoped>
-    .h-100 {
-      min-height: 100vh;
-    }
+.product-layout-section {
+  margin: 0 auto;
+  @media (min-width: 768px) {
+    width: 60vw;
+  }
+}
+
+.product-grid {
+  display: grid;
+  gap: 15px;
+  justify-content: center; 
+  justify-items: center;
+  padding: 0;
+
+  grid-template-columns: repeat(1, 1fr);
+
+  @media (min-width: 485px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+li {
+  width: 100%;
+}
 </style>

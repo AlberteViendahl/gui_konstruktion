@@ -6,7 +6,7 @@ export default {
   props: {
     id: [String, Number] // accept both string and number
   },
-  emits: ['productDeleted'], // <-- declare your custom event here
+  emits: ['productDeleted'], //
   data() {
     return {
       trashIcon: trash,
@@ -27,7 +27,7 @@ export default {
         );
 
         if (response.ok) {
-          this.$emit('productDeleted', this.id); // <-- emit event
+          this.$emit('productDeleted', this.id);
         }
       } catch (error) {
         console.log(error);

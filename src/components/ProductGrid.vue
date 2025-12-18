@@ -43,11 +43,13 @@ export default {
 
       // Filter by search text
       if (this.search) {
+        const s = this.search.toLowerCase();
         filtered = filtered.filter(product =>
-          product.title.toLowerCase().includes(this.search.toLowerCase()) ||
-          product.material.toLowerCase().includes(this.search.toLowerCase()) ||
-          product.description.toLowerCase().includes(this.search.toLowerCase())
+          (product.title?.toLowerCase().includes(s) || product.prodName?.toLowerCase().includes(s)) ||
+          product.material?.toLowerCase().includes(s) ||
+          product.description?.toLowerCase().includes(s)
         );
+       
       }
 
       return filtered;
@@ -63,6 +65,7 @@ export default {
     },
     updateCategory(categoryValue) {
       this.localSelectedCategory = categoryValue;
+      this.$emit('category-changed', categoryValue);
     },
     clearAllFilters() {
       this.search = '';
@@ -116,8 +119,6 @@ export default {
 
 <template>
   <section>
-    <h2>Produkter</h2>
-    
     <!-- Filter indicator - now in ProductGrid -->
     <div v-if="activeFilter || search" class="filter-indicator mb-3">
       <span v-if="activeFilter" class="badge bg-primary me-2">
@@ -131,15 +132,15 @@ export default {
       </button>
     </div>
     
-    <form class="d-flex gap-2 mt-4">
+    <form class="d-flex gap-2 mt-4 mb-2 mb-lg-3 justify-content-between">
       <SearchComponent @update-search="updateSearch" />
       <Filter 
         :model-value="localSelectedCategory" 
         @update-category="updateCategory" 
       />
     </form>
-    <ul class="row list-unstyled">
-      <li class="col-6 p-1" v-for="p in filteredProducts" :key="p.id">
+    <ul class="row product-grid list-unstyled">
+      <li class="p-1" v-for="p in filteredProducts" :key="p.id">
         <ProductCard
           :id="p.prodID"
           :title="p.prodName"
@@ -154,10 +155,41 @@ export default {
 </template>
 
 <style scoped>
+
 .card {
   background-color: #FBF7EF;
   border-radius: 0.75rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   border: none;
 }
+.product-grid {
+  display: grid;
+  gap: 15px;
+  justify-content: center; 
+  justify-items: center;
+  padding: 0;
+
+  grid-template-columns: repeat(1, 1fr);
+
+  @media (min-width: 485px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1800px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+li {
+  width: 100%;
+}
+
 </style>

@@ -1,32 +1,18 @@
 <template>
-  <section class="shop">
-    <PageHeader title="Udforsk" />
-    <p>
-      Her finder du vores komplette, sorterede udvalg af genbrugte
-      byggematerialer. <br /><br />
-      Vi har inddelt alle materialer i klare kategorier, så du nemt og hurtigt
-      kan finde den præcise mængde, størrelse og kvalitet, dit projekt kræver.
-      <br /><br />
-      Vælg en kategori herunder og begynd at udforske produkter.
-    </p>
-
-    <!-- Search og Filter -->
-    <form class="fands d-flex gap-2 mt-4">
-      <SearchComponent @update-search="search = $event" />
-      <Filter @update-category="selectedCategory = $event" />
-    </form>
-
-    <!-- Liste af filtrerede materialer -->
-    <section class="material-list">
-      <ul v-if="filteredProducts.length" class="list-unstyled">
-        <li v-for="p in filteredProducts" :key="p.id" class="material-item">
-          {{ p.name }} ({{ p.category }}) - {{ p.price }} kr
-        </li>
-      </ul>
-
-      <p v-if="!filteredProducts.length">Ingen materialer fundet...</p>
+  <section class="container shop">
+    
+    <PageHeader title="Udforsk" class="d-lg-none" />
+    <section class="row justify-content-center">
+      <p class="col-10 col-md-8 text-center fw-bolder m-0">
+        Vi har inddelt alle materialer i klare kategorier, så du nemt og hurtigt kan finde det dit projekt kræver.
+      </p>
     </section>
     <CategoryGrid />
+    <section class="mt-3 mt-md-5">
+      <h2>Alle produkter</h2>
+      <ProductGrid />
+    </section>
+    
   </section>
 </template>
 
@@ -36,6 +22,7 @@ import SearchComponent from "@/components/SearchComponent.vue";
 import CategoryGrid from "@/components/CategoryGrid.vue";
 import Filter from "@/components/Filter.vue";
 import PageHeader from '@/components/PageHeader.vue';
+import ProductGrid from "@/components/ProductGrid.vue";
 
 // Hardcodede materialer
 const produkter = [

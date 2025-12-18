@@ -72,8 +72,8 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <nav class="tabs mt-5 d-flex">
+  <div class="container d-flex flex-column align-items-center">
+    <nav class="row tabs mt-5 d-flex">
       <ul class="list-unstyled d-flex w-100 justify-content-evenly" role="tablist">
         <li role="presentation">
           <button id="info-tab" :class="{ active: activeTab === 'info' }" @click="activeTab = 'info'" role="tab">Information</button>
@@ -85,9 +85,9 @@ export default {
       </ul>
     </nav>
 
-    <div class="tab-separator-bar w-100 px-5 mt-2 mb-4" :class="{ 'sales-active': activeTab === 'sales' }"></div>
+    <div class="row tab-separator-bar px-5 mt-2 mb-4" :class="{ 'sales-active': activeTab === 'sales' }"></div>
 
-    <section class="tab-content">
+    <section class="row tab-content">
 
       <div v-if="activeTab === 'info'">
         <ProfileInfoCard :user="user" @profile-reload="handleProfileReload" />
@@ -104,13 +104,15 @@ export default {
 
 <style scoped>
 .container {
-  margin-top: 120px;
+  margin-top: 50px;
+  margin-bottom: 120px;
 }
 
 .tab-separator-bar {
     height: 2px;
     background: linear-gradient(to right, #eee 50%, #eee 50%);
     transition: background 0.3s ease-in-out;
+    width: 50vw;
 }
 
 .tab-separator-bar.sales-active {
@@ -126,10 +128,14 @@ nav button {
   background: transparent;
 }
 
-.tabs button.active {
-    color: #000;
-    font-weight: 600;
+.tabs {
+  min-width: 50vw;
+  button.active {
+      color: #000;
+      font-weight: 600;
+  }
 }
+
 
 .tabs button {
     color: #888;
