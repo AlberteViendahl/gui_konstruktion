@@ -89,7 +89,7 @@ export default {
 
 <style scoped>
 .container {
-  margin-top: 120px;
+  margin-top: 80px;
   margin-bottom: 120px;
 }
 </style>
