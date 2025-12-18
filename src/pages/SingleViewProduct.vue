@@ -11,6 +11,11 @@
       :description="product.description"
       :location="product.location"
       :material="product.material"
+      :height="product.height"        
+      :width="product.width"          
+      :length="product.length"        
+      :weight="product.weight"        
+      :quantityvalue="product.quantityvalue"
     />
     <p v-else>Produkt ikke fundet</p>
     <BackButton />
@@ -78,7 +83,11 @@ export default {
             '/img/mursten.jpg'
           ], 
           price: 500, 
-          quantity: 40, 
+          quantity: 40,
+          quantityvalue: 'stk',
+          height: '5',
+          width: '32',
+          length: '240', 
           description: 'Træbrædder i forskellige størrelser Træbrædder i forskellige størrelser Træbrædder i forskellige størrelser', 
           location: 'Korsør, Sjælland',
           material: 'Træ' 

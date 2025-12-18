@@ -44,7 +44,12 @@
         <tbody>
           <tr>
             <td>Kategori</td>
-            <td>Træ & tømmer</td> </tr>
+            <td>Træ & tømmer</td> 
+          </tr>
+          <tr>
+            <td>Kvalitet</td>
+            <td><Grading grading="B"/></td>
+          </tr>
           <tr v-if="material">
             <td>Materiale</td>
             <td>{{ material }}</td>
@@ -53,10 +58,27 @@
             <td>Lokation</td>
             <td>{{ location }}</td>
           </tr>
-          <tr>
-            <td>Kvalitet</td>
-            <td><Grading grading="B"/></td>
+          <tr v-if="height">
+            <td>Højde</td>
+            <td>{{ height }} cm</td>
           </tr>
+          <tr v-if="width">
+            <td>Bredde</td>
+            <td>{{ width }} cm</td>
+          </tr>
+          <tr v-if="weight">
+            <td>Vægt</td>
+            <td>{{ weight }} kg</td>
+          </tr>
+          <tr v-if="length">
+            <td>Længde</td>
+            <td>{{ length }} cm</td>
+          </tr>
+          <tr v-if="quantityvalue">
+            <td>Kvantitetsmål</td>
+            <td>{{ quantityvalue }}</td>
+          </tr>
+          
         </tbody>
       </table>
     </div>
@@ -82,6 +104,10 @@ export default {
       type: Array,
       default: () => []
     },
+    height: { type: String, default: '' },
+    width: { type: String, default: '' },
+    length: { type: String, default: '' },
+    quantityvalue: { type: String, default: '' },
     price: [Number, String],
     quantity: { type: [Number, String], default: 1 },
     description: { type: String, default: '' },
