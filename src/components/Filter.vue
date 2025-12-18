@@ -1,7 +1,7 @@
 <template>
-  <form class="filter col-5 col-md-3 p-0">
+  <form class="filter col-3 col-md-3 p-0">
     <label for="category-select" class="visually-hidden">Vælg kategori:</label>
-    <select
+    <select class="w-100"
       id="category-select"
       v-model="localCategory"
     >
@@ -51,6 +51,7 @@ export default {
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
+  justify-content: end;
 }
 select {
   padding: 8px;
