@@ -55,7 +55,7 @@ export default {
 
 <template>
 <!-- Bootstrap card -->
-  <div class="card p-2 h-100" @click="goToProduct">
+  <div class="product-card p-2 h-100" @click="goToProduct">
    <!-- Her sættes billedet med justeret højde -->
     <img :src="image" class="card-img-top" :alt="title" />
     <div class="card-body" >
@@ -91,7 +91,6 @@ export default {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   border: none;
   background-color: #FBF7EF;
-
 }
 .card-img-top {
   height: 100px;

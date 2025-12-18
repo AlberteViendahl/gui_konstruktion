@@ -72,27 +72,13 @@ export default {
 
 <template>
   <div class="container d-flex flex-column align-items-center">
-    <nav class="row tabs mt-5 d-flex">
-      <ul class="list-unstyled d-flex w-100 justify-content-evenly" role="tablist">
-        <li role="presentation">
-          <button id="info-tab" :class="{ active: activeTab === 'info' }" @click="activeTab = 'info'" role="tab">Information</button>
-        </li>
-
-        <li role="presentation">
-          <button id="sales-tab" :class="{ active: activeTab === 'sales' }" @click="activeTab = 'sales'"role="tab">Mine salg</button>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="row tab-separator-bar px-5 mt-2 mb-4" :class="{ 'sales-active': activeTab === 'sales' }"></div>
-
     <section class="row tab-content">
 
-      <div v-if="activeTab === 'info'">
+      <div>
         <ProfileInfoCard :user="user" @profile-reload="handleProfileReload" />
       </div>
 
-      <div v-else-if="activeTab === 'sales'">
+      <div>
         <ProfileMySales :user-id="user.userID" />
       </div>
 
@@ -103,43 +89,7 @@ export default {
 
 <style scoped>
 .container {
-  margin-top: 50px;
+  margin-top: 120px;
   margin-bottom: 120px;
-  @media (min-width: 1200px) {
-    margin-top: 0;
-  }
-}
-
-.tab-separator-bar {
-    height: 2px;
-    background: linear-gradient(to right, #eee 50%, #eee 50%);
-    transition: background 0.3s ease-in-out;
-    width: 50vw;
-}
-
-.tab-separator-bar.sales-active {
-    background: linear-gradient(to right, #eee 50%, #000 50%); 
-}
-
-.tab-separator-bar:not(.sales-active) {
-    background: linear-gradient(to right, #000 50%, #eee 50%);
-}
-
-nav button {
-  border: none;
-  background: transparent;
-}
-
-.tabs {
-  min-width: 50vw;
-  button.active {
-      color: #000;
-      font-weight: 600;
-  }
-}
-
-
-.tabs button {
-    color: #888;
 }
 </style>
