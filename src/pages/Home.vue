@@ -7,6 +7,17 @@ export default {
   components: { 
     ProductGrid,
     CategoryHead,
+    //api test
+    mounted() {
+    fetch("https://rebuildapi.onrender.com/api/products")
+      .then(res => res.json())
+      .then(data => {
+        console.log("Produkter fra API:", data);
+      })
+      .catch(err => {
+        console.error("API fejl:", err);
+      });
+  }
   },
   data() {
     return {

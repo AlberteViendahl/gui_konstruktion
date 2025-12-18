@@ -12,7 +12,7 @@ export default {
 
   },
   props: {
-    id: String,
+    id: [String, Number],
     title: String,
     image: String,
     price: [String, Number],

@@ -20,7 +20,8 @@ export default {
   methods: {
     async getproducts(){
       try {
-        const response = await fetch('http://localhost:8080/api/products');
+        //const response = await fetch('http://localhost:8080/api/products');
+        const response = await fetch('https://rebuildapi.onrender.com/api/products');
         this.products = await response.json();
       } catch(error) {
         console.log(error);

@@ -119,7 +119,10 @@ export default {
       // this.error = null;
       
       try {
-        const response = await fetch('http://localhost:8080/api/products');
+        // api fetch
+      const response = await fetch('https://rebuildapi.onrender.com/api/products');
+       // const response = await fetch('http://localhost:8080/api/products');
+
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
