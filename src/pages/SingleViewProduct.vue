@@ -1,6 +1,6 @@
 <template>
   <section>
-    <PageHeader title="Produkt" />
+    <PageHeader title="Produkt"  class="d-lg-none" />
     <Product
       v-if="product"
       :title="product.title"

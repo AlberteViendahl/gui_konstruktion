@@ -1,7 +1,7 @@
 <template>
   <section class="container shop">
     
-    <PageHeader title="Udforsk" />
+    <PageHeader title="Udforsk" class="d-lg-none" />
     <section class="row justify-content-center">
       <p class="col-10 col-md-8 text-center fw-bolder m-0">
         Vi har inddelt alle materialer i klare kategorier, så du nemt og hurtigt kan finde det dit projekt kræver.
