@@ -135,7 +135,7 @@ export default {
   right: 10px;
   @media (min-width: 992px) {
     top: 410px;
-  right: 10px;
+    right: 10px;
   }
 }
 
@@ -173,6 +173,7 @@ export default {
 
   .main-image img {
     width: 100%;
+    max-width: 680px;
     height: 350px;
     object-fit: cover;
     border-radius: 4px;
