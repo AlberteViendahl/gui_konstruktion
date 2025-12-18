@@ -24,18 +24,39 @@ export default {
     async createProduct(event) {
       try {
         event.preventDefault();
-        const response = await fetch("http://localhost:8080/api/products", {
+        //const response = await fetch("http://localhost:8080/api/products", {
+        const response = await fetch("https://rebuildapi.onrender.com/api/products", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(this.newProduct),
         });
         if(response.ok){
-          return createdProduct = await response.json();
-        }
+          const createdProduct = await response.json();
+          console.log("Produkt oprettet:", createdProduct);
 
-      } catch(error){
+          // Nulstil formular
+          this.newProduct = {
+            prodName: "",
+            prodDesc: "",
+            prodCategory: 1,
+            prodAmount: 0,
+            prodUnitID: 1,
+            prodPrice: 0,
+            prodGradeID: 1,
+            prodLocation: "",
+          };
+          // Close modal
+          const modalEl = document.getElementById("addProductModal");
+          const modal = bootstrap.Modal.getInstance(modalEl);
+          if (modal) modal.hide();
+
+          return createdProduct;
+          } else {
+          console.error("Failed to create product:", response.statusText);
+        }
+      } catch (error) {
         console.log(error);
-      }
+        }
     },
   },
 };
