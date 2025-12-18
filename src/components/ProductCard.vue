@@ -8,8 +8,7 @@ export default {
   components: {
     Grading,
     DeleteProductForm,
-    UpdateProductForm
-
+    UpdateProductForm,
   },
   props: {
     id: [String, Number],
@@ -18,18 +17,18 @@ export default {
     price: [String, Number],
     quantity: {
       type: [String, Number],
-      default: 1, // hvis du ikke sender noget, vises "1" automatisk
+      default: 1,
     },
     initialLiked: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    myProduct: Boolean
+    myProduct: Boolean,
   },
   data() {
     return {
       liked: this.initialLiked,
-      prodID: this.id
+      prodID: this.id,
     };
   },
   methods: {
@@ -39,68 +38,68 @@ export default {
         params: { id: this.id },
       });
     },
-    handleDelete(){
-      this.$emit('product-deleted');
+    handleDelete() {
+      this.$emit("product-deleted");
     },
-    // Skifter liked mellem true og false. Dette trigger computed property
-    // heartClasses → hjertet skifter mellem fyldt og outline.
     toggleLike() {
       this.liked = !this.liked;
     },
   },
-  mounted(){
-  }
 };
 </script>
 
 <template>
-<!-- Bootstrap card -->
-  <div class="card p-2 h-100" @click="goToProduct">
-   <!-- Her sættes billedet med justeret højde -->
+  <div class="card product-card p-2" @click="goToProduct">
     <img :src="image" class="card-img-top" :alt="title" />
-    <div class="card-body" >
-      <div class="d-flex align-items-start justify-content-between">
-        <h5 class="card-title d-flex justify-content-between align-items-center">
-          {{ title }}
-        </h5>
-        <Grading grading="A" />
+
+    <div class="card-body d-flex flex-column justify-content-between h-100">
+      <div>
+        <div class="d-flex align-items-start justify-content-between">
+          <h5 class="card-title">{{ title }}</h5>
+          <Grading grading="A" />
+        </div>
+        <p class="text">{{ quantity }} stk</p>
       </div>
-      <p class="text"> 
-          {{ quantity }} stk 
-      </p>
+
       <div class="d-flex justify-content-between align-items-center">
-        <p class="card-text p-0 m-0">
-            {{ price }} DKK 
-        </p>
+        <p class="card-text p-0 m-0">{{ price }} DKK</p>
         <button class="custom-btn" @click.stop="toggleLike">
-          <i v-if="!this.liked" class="bi bi-heart teal"></i>
-          <i v-if="this.liked" class="bi bi-heart-fill teal"></i>
+          <i v-if="!liked" class="bi bi-heart teal"></i>
+          <i v-if="liked" class="bi bi-heart-fill teal"></i>
         </button>
       </div>
 
-      <DeleteProductForm :id="prodID" @product-deleted="handleDelete"/>
-      <UpdateProductForm :id="prodID"/>
+      <DeleteProductForm :id="prodID" @product-deleted="handleDelete" />
+      <UpdateProductForm :id="prodID" />
     </div>
   </div>
 </template>
 
 <style scoped>
 .product-card {
-  padding: 10px; /* luft inde i kortet */
+  height: 300px;
   border-radius: 0.75rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   border: none;
-  background-color: #FBF7EF;
-
+  background-color: #fbf7ef;
 }
+
 .card-img-top {
-  height: 100px;
+  height: 120px;
   object-fit: cover;
+  margin-bottom: 10px;
 }
 
-/* Fyldt hjerte når liked */
+.card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 .teal {
-  color: #008080; /* fyldt teal */
+  color: #008080;
   cursor: pointer;
 }
 
@@ -109,12 +108,9 @@ export default {
   border: none;
 }
 
-.card-title {
-  overflow-wrap: break-word;
+.card-text,
+.text {
+  margin: 0;
+  padding: 0;
 }
-
-.trash-icon {
-  fill: red;
-}
-
 </style>
