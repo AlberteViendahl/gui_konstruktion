@@ -132,7 +132,7 @@ export default {
       </button>
     </div>
     
-    <form class="d-flex gap-2 mt-4 justify-content-between">
+    <form class="d-flex gap-2 mt-4 mb-2 mb-lg-3 justify-content-between">
       <SearchComponent @update-search="updateSearch" />
       <Filter 
         :model-value="localSelectedCategory" 
@@ -183,8 +183,8 @@ export default {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (min-width: 1200px) {
-    grid-template-columns: repeat(4, 1fr);
+  @media (min-width: 1800px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
