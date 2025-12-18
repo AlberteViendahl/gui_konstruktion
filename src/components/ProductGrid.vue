@@ -20,44 +20,7 @@ export default {
     return {
       search: '',
       localSelectedCategory: '',
-      products: [
-      {
-        prodID: 101,
-        prodName: "Blå Keramik Vase",
-        prodImage: "img/paller.jpg",
-        prodPrice: 249.50,
-        prodAmount: 3,
-        material: "Stentøj",
-        category: "inventar & indretning",
-      },
-      {
-        prodID: 102,
-        prodName: "Håndvævet Gulvtæppe",
-        prodImage: "img/paller.jpg",
-        prodPrice: 1200.00,
-        prodAmount: 1,
-        material: "Uld",
-        category: "træ & tømmer",
-      },
-      {
-        prodID: 103,
-        prodName: "Moderne Lysestage",
-        prodImage: "img/paller.jpg",
-        prodPrice: 150.00,
-        prodAmount: 10,
-        material: "Messing",
-        category: "inventar & indretning",
-      },
-      {
-        prodID: 104,
-        prodName: "Minimalistisk Stol",
-        prodImage: "img/paller.jpg",
-        prodPrice: 899.00,
-        prodAmount: 2,
-        material: "Egetræ",
-        category: "træ & tømmer",
-      }
-    ],
+      products: [],
     };
   },
   computed: {
@@ -86,11 +49,7 @@ export default {
           product.material?.toLowerCase().includes(s) ||
           product.description?.toLowerCase().includes(s)
         );
-       // filtered = filtered.filter(product =>
-       //   product.title.toLowerCase().includes(this.search.toLowerCase()) ||
-       //  product.material.toLowerCase().includes(this.search.toLowerCase()) ||
-       //   product.description.toLowerCase().includes(this.search.toLowerCase())
-       // );
+       
       }
 
       return filtered;
