@@ -105,9 +105,6 @@ export default {
 .container {
   margin-top: 50px;
   margin-bottom: 120px;
-  @media (min-width: 1200px) {
-    margin-top: 0;
-  }
 }
 
 .tab-separator-bar {
