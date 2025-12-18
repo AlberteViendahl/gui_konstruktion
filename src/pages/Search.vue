@@ -7,24 +7,12 @@
         Vi har inddelt alle materialer i klare kategorier, så du nemt og hurtigt kan finde det dit projekt kræver.
       </p>
     </section>
-
-    <!-- Search og Filter -->
-    <form class="fands row mt-5 justify-content-between">
-      <SearchComponent @update-search="search = $event" />
-      <Filter @update-category="selectedCategory = $event" />
-    </form>
-
-    <!-- Liste af filtrerede materialer -->
-    <section class="material-list row">
-      <ul v-if="filteredProducts.length" class="list-unstyled">
-        <li v-for="p in filteredProducts" :key="p.id" class="material-item">
-          {{ p.name }} ({{ p.category }}) - {{ p.price }} kr
-        </li>
-      </ul>
-
-      <p v-if="!filteredProducts.length">Ingen materialer fundet...</p>
-    </section>
     <CategoryGrid />
+    <section class="mt-3 mt-md-5">
+      <h2>Alle produkter</h2>
+      <ProductGrid />
+    </section>
+    
   </section>
 </template>
 
@@ -34,6 +22,7 @@ import SearchComponent from "@/components/SearchComponent.vue";
 import CategoryGrid from "@/components/CategoryGrid.vue";
 import Filter from "@/components/Filter.vue";
 import PageHeader from '@/components/PageHeader.vue';
+import ProductGrid from "@/components/ProductGrid.vue";
 
 // Hardcodede materialer
 const produkter = [
