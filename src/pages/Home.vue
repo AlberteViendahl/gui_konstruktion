@@ -7,17 +7,6 @@ export default {
   components: { 
     ProductGrid,
     CategoryHead,
-    //api test
-    mounted() {
-    fetch("https://rebuildapi.onrender.com/api/products")
-      .then(res => res.json())
-      .then(data => {
-        console.log("Produkter fra API:", data);
-      })
-      .catch(err => {
-        console.error("API fejl:", err);
-      });
-  }
   },
   data() {
     return {
@@ -39,6 +28,16 @@ export default {
     if (this.$route.query.category) {
       this.selectedCategory = this.$route.query.category;
     }
+    //API test fetching products
+    fetch("https://rebuildapi.onrender.com/api/products")
+      .then(res => res.json())
+      .then(data => {
+        console.log("Produkter fra API:", data);
+      })
+      .catch(err => {
+        console.error("API fejl:", err);
+      });
+
   },
   watch: {
     // Watch for route changes (browser back/forward)

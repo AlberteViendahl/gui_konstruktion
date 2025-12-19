@@ -1,22 +1,62 @@
+<script>
+import Product from '@/components/Product.vue'
+import BackButton from '@/components/BackButton.vue'
+
+export default {
+  name: 'SingleViewProduct',
+  components: { 
+    Product,
+    BackButton
+  },
+
+  data() {
+    return {
+      product: null
+    }
+  },
+
+  async mounted() {
+    const id = this.$route.params.id
+    console.log(this.product)
+
+
+    try {
+      const response = await fetch(`https://rebuildapi.onrender.com/api/products/${id}`)
+
+      if (!response.ok) {
+        throw new Error('Produkt ikke fundet')
+      }
+
+      this.product = await response.json()
+
+    } catch (error) {
+      console.error('Fejl ved hentning af produkt:', error)
+      this.product = null
+    }
+  }
+}
+</script>
+
 <template>
   <section>
     
     <Product
       v-if="product"
-      :title="product.title"
-      :image="product.image"
-      :images="product.images"
-      :price="product.price"
-      :quantity="product.quantity"
-      :description="product.description"
-      :location="product.location"
+      :title="product.prodName"
+      :image="product.prodImage?.[0]"
+      :images="product.prodImage"
+      :price="product.prodPrice"
+      :quantity="product.prodAmount"
+      :quantityvalue="product.unit"
+      :description="product.prodDesc"
+      :location="product.prodLocation"
       :material="product.material"
-      :height="product.height"        
-      :width="product.width"          
-      :length="product.length"        
-      :weight="product.weight"        
-      :quantityvalue="product.quantityvalue"
+      :height="product.height"
+      :width="product.width"
+      :length="product.length"
+      :weight="product.weight"
     />
+
     <p v-else>Produkt ikke fundet</p>
     <BackButton />
   </section>
@@ -26,79 +66,4 @@
   
 </style>
 
-<script>
-import Product from '@/components/Product.vue'
-import PageHeader from '@/components/PageHeader.vue';
-import BackButton from '@/components/BackButton.vue';
 
-export default {
-  name: 'SingleViewProduct',
-  components: { 
-    Product,
-    PageHeader,
-    BackButton
-  },
-
-  data() {
-    return {
-      products: [
-        { 
-          id: '1', 
-          title: 'Røde mursten', 
-          image: '/img/mursten.jpg', 
-          price: 2000, 
-          quantity: 20, 
-          description: 'High-quality red bricks', 
-          location: 'Roskilde, Sjælland', 
-          material: 'Sten' 
-        },
-        { 
-          id: '2', 
-          title: 'Paller', 
-          image: '/img/paller.jpg', 
-          price: 1500, 
-          quantity: 5, 
-          description: 'Foskellige type paller', 
-          location: 'København, Syd', 
-          material: 'Træ' 
-        },
-        { 
-          id: '3', 
-          title: 'Tagsten', 
-          image: '/img/tagsten.jpg', 
-          price: 3000, 
-          quantity: 50, 
-          description: 'Durable roof tiles', 
-          location: 'Aarhus, Jylland',
-          material: 'Træ' 
-        },
-        { 
-          id: '4', 
-          title: 'Træbrædder', 
-          image: '/img/træ.jpg',
-          images: [
-            '/img/træ.jpg',
-            '/img/tagsten.jpg',
-            '/img/paller.jpg',
-            '/img/mursten.jpg'
-          ], 
-          price: 500, 
-          quantity: 40,
-          quantityvalue: 'stk',
-          height: '5',
-          width: '32',
-          length: '240', 
-          description: 'Træbrædder i forskellige størrelser Træbrædder i forskellige størrelser Træbrædder i forskellige størrelser', 
-          location: 'Korsør, Sjælland',
-          material: 'Træ' 
-        }
-      ],
-      product: null
-    }
-  },
-  mounted() {
-    const id = this.$route.params.id
-    this.product = this.products.find(p => p.id === id)
-  }
-}
-</script>

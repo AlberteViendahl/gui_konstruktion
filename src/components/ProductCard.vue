@@ -31,13 +31,16 @@ export default {
       prodID: this.id,
     };
   },
-  methods: {
-    goToProduct() {
-      this.$router.push({
-        name: "SingleViewProduct",
-        params: { id: this.id },
-      });
-    },
+methods: {
+  goToProduct() {
+    // Hvis der **ikke** er id, gør ikke noget
+    if (!this.id) return;
+
+    this.$router.push({
+      name: "SingleViewProduct",
+      params: { id: this.id },
+    });
+  },
     handleDelete() {
       this.$emit("product-deleted");
     },
@@ -62,7 +65,7 @@ export default {
       </div>
 
       <div class="d-flex justify-content-between align-items-center">
-        <p class="card-text p-0 m-0">{{ price }} DKK</p>
+        <p class="card-text p-0 m-0"><b>{{ price }} DKK</b></p>
         <button class="custom-btn" @click.stop="toggleLike">
           <i v-if="!liked" class="bi bi-heart teal"></i>
           <i v-if="liked" class="bi bi-heart-fill teal"></i>
@@ -113,4 +116,8 @@ export default {
   margin: 0;
   padding: 0;
 }
+.product-price {
+  font-weight: 700;
+}
+
 </style>

@@ -107,6 +107,7 @@ export default {
     height: { type: String, default: '' },
     width: { type: String, default: '' },
     length: { type: String, default: '' },
+    weight: { type: [String, Number], default: '' }, // MANGLER
     quantityvalue: { type: String, default: '' },
     price: [Number, String],
     quantity: { type: [Number, String], default: 1 },
